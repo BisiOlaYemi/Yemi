@@ -8,6 +8,7 @@ import easycarImg from '../assets/easycar.png';
 import simbasImg from '../assets/simbas.png';
 import charityImg from '../assets/charity.png';
 import withiresImg from '../assets/withhires.png';
+import resumePDF from '../assets/resume.pdf';
 
 const Hero = () => {
   const images = [
@@ -33,6 +34,10 @@ const Hero = () => {
     },
   ];
 
+  const openResume = () => {
+    window.open(resumePDF, '_blank');
+  };
+
   return (
     <BrowserRouter>
       <div className='w-screen h-screen grid grid-cols-1 md:grid-cols-2 text-white'>
@@ -40,16 +45,19 @@ const Hero = () => {
           <img
             src={yemi}
             alt='myphoto'
-            className='max-w-full h-auto'
-            style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }}
+            className='max-w-full h-auto mt-2'
+            style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 600 }}
           />
         </div>
         {/* Section two */}
         <div className='relative w-full h-full md:h-screen md:grid md:place-items-center'>
         <div className='flex justify-center mt-2 mb-2'>
             <Link to='https://github.com/BisiOlaYemi'>
-              <button className='bg-gray-800 py-2 px-4 text-white text-center rounded-lg'>View details</button>
+              <button className='bg-gray-800 py-2 px-4 text-white text-center rounded-lg'>Github</button>
             </Link>
+              <button className='bg-gray-800 py-2 px-4 text-white text-center rounded-lg ml-2' onClick={openResume}>
+                Resume
+              </button>
           </div>
           <div className='carousel-container'>
             <Carousel showThumbs={false} showArrows={false} showStatus={false} infiniteLoop autoPlay>
@@ -59,7 +67,7 @@ const Hero = () => {
                     src={image.src}
                     alt={image.alt}
                     className='carousel-image'
-                    style={{ maxWidth: '100%', height: 600, width: 300 }}
+                    style={{ maxWidth: '100%', height: 550, width: 300 }}
                   />
                 </div>
               ))}
