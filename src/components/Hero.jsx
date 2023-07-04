@@ -45,7 +45,7 @@ const Hero = () => {
       {/* Section two */}
       <div className='relative w-full h-full md:h-screen'>
         <div className='carousel-container'>
-          <Carousel showThumbs={false} infiniteLoop autoPlay>
+          <Carousel showThumbs={false} showArrows={false} showStatus={false} infiniteLoop autoPlay>
             {images.map((image, index) => (
               <div key={index} className='carousel-item'>
                 <img
