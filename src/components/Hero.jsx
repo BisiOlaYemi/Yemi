@@ -6,6 +6,7 @@ import careerhavenImg from '../assets/careerhaven.png';
 import easycarImg from '../assets/easycar.png';
 import simbasImg from '../assets/simbas.png';
 import charityImg from '../assets/charity.png';
+import withiresImg from '../assets/withhires.png';
 
 const Hero = () => {
   const images = [
@@ -25,14 +26,20 @@ const Hero = () => {
       src: charityImg,
       alt: 'Charity',
     },
+    {
+      src: withiresImg,
+      alt: 'Charity',
+    },
   ];
 
   return (
-    <div className='w-screen h-screen grid grid-rows-2 md:grid-cols-2 text-white'>
-      <div className='relative bg-amber-500 w-full h-full md:h-screen'>
-        <h1 className='text-3xl text-white font-bold text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-          Hello
-        </h1>
+    <div className=' w-screen h-screen grid grid-rows-2 md:grid-cols-2 text-white'>
+      <div className='bg-gradient-to-r from-gray-950  w-full h-full md:h-screen'>
+        <h1 className='text-3xl text-white font-bold text-center p-8'>Portfolio</h1>
+      </div>
+      {/* Section two */}
+      <div className='relative w-full h-full md:h-screen'>
+       
         <div className='carousel-container'>
           <Carousel showThumbs={false} infiniteLoop autoPlay>
             {images.map((image, index) => (
@@ -41,17 +48,13 @@ const Hero = () => {
                   src={image.src}
                   alt={image.alt}
                   className='carousel-image'
-                  style={{ maxWidth: '100%', height: 'auto', width: 300 }}
+                  style={{ maxWidth: '100%', height: 600, width: 300 }}
                 />
               </div>
             ))}
           </Carousel>
         </div>
-      </div>
-      {/* Section two */}
-      <div className='bg-gray-900 w-full h-full md:h-screen'>
-        <h1 className='text-2xl text-white font-bold text-center'>World</h1>
-      </div>
+      </div>      
     </div>
   );
 };
