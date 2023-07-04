@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import yemi from '../assets/yemi.png';
@@ -34,36 +34,38 @@ const Hero = () => {
   ];
 
   return (
-    <div className=' w-screen h-screen grid grid-rows-2 md:grid-cols-2 text-white'>
-      <div className='bg-gradient-to-r from-gray-950 w-full h-full md:h-screen flex flex-col justify-center items-center'>
+    <BrowserRouter>
+      <div className='w-screen h-screen grid grid-rows-2 md:grid-cols-2 text-white'>
+        <div className='bg-gradient-to-r from-gray-950 w-full h-full md:h-screen flex flex-col justify-center items-center'>
           <img
             src={yemi}
             alt='myphoto'
             className='max-w-full h-auto'
             style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }}
           />
-      </div>
-      {/* Section two */}
-      <div className='relative w-full h-full md:h-screen'>
-        <div className='carousel-container'>
-          <Carousel showThumbs={false} showArrows={false} showStatus={false} infiniteLoop autoPlay>
-            {images.map((image, index) => (
-              <div key={index} className='carousel-item'>
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className='carousel-image'
-                  style={{ maxWidth: '100%', height: 'auto', width: 300 }}
-                />
-              </div>
-            ))}
-          </Carousel>
-          <Link to=''>
-              <button className=''>View details</button>
-          </Link>
         </div>
-      </div>      
-    </div>
+        {/* Section two */}
+        <div className='relative w-full h-full md:h-screen'>
+          <div className='carousel-container'>
+            <Carousel showThumbs={false} showArrows={false} showStatus={false} infiniteLoop autoPlay>
+              {images.map((image, index) => (
+                <div key={index} className='carousel-item'>
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className='carousel-image'
+                    style={{ maxWidth: '100%', height: 600, width: 300 }}
+                  />
+                </div>
+              ))}
+            </Carousel>
+            <Link to='/'>
+              <button>View details</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 };
 
