@@ -35,7 +35,6 @@ const Hero = () => {
   return (
     <div className=' w-screen h-screen grid grid-rows-2 md:grid-cols-2 text-white'>
       <div className='bg-gradient-to-r from-gray-950 w-full h-full md:h-screen flex flex-col justify-center items-center'>
-          
           <img
             src={yemi}
             alt='myphoto'
