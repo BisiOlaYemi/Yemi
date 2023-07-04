@@ -53,9 +53,9 @@ const Hero = () => {
         <div className='relative w-full h-full md:h-screen md:grid md:place-items-center'>
         <div className='flex justify-center mt-2 mb-2'>
             <Link to='https://github.com/BisiOlaYemi'>
-              <button className='bg-gray-800 py-2 px-4 text-white text-center rounded-lg'>Github</button>
+              <button className='bg-violet-600 py-2 px-4 text-white text-center rounded-lg font-bold'>Github</button>
             </Link>
-              <button className='bg-gray-800 py-2 px-4 text-white text-center rounded-lg ml-2' onClick={openResume}>
+              <button className='bg-gray-800 py-2 px-4 text-white text-center font-bold rounded-lg ml-2' onClick={openResume}>
                 Resume
               </button>
           </div>
