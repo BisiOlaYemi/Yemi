@@ -35,7 +35,7 @@ const Hero = () => {
 
   return (
     <BrowserRouter>
-      <div className='w-screen h-screen grid grid-rows-2 md:grid-cols-2 text-white'>
+      <div className='w-screen h-screen grid grid-cols-1 md:grid-cols-2 text-white'>
         <div className='bg-gradient-to-r from-gray-950 w-full h-full md:h-screen flex flex-col justify-center items-center'>
           <img
             src={yemi}
@@ -45,7 +45,12 @@ const Hero = () => {
           />
         </div>
         {/* Section two */}
-        <div className='relative w-full h-full md:h-screen'>
+        <div className='relative w-full h-full md:h-screen md:grid md:place-items-center'>
+        <div className='flex justify-center mt-2 mb-2'>
+            <Link to='/'>
+              <button className='bg-gray-800 py-2 px-4 text-white text-center rounded-lg'>View details</button>
+            </Link>
+          </div>
           <div className='carousel-container'>
             <Carousel showThumbs={false} showArrows={false} showStatus={false} infiniteLoop autoPlay>
               {images.map((image, index) => (
@@ -59,9 +64,6 @@ const Hero = () => {
                 </div>
               ))}
             </Carousel>
-            <Link to='/'>
-              <button>View details</button>
-            </Link>
           </div>
         </div>
       </div>
