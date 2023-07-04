@@ -52,7 +52,7 @@ const Hero = () => {
                   src={image.src}
                   alt={image.alt}
                   className='carousel-image'
-                  style={{ maxWidth: '100%', height: 600, width: 300 }}
+                  style={{ maxWidth: '100%', height: 'auto', width: 300 }}
                 />
               </div>
             ))}
