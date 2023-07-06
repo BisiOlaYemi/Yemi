@@ -1,13 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { FaReact, FaPython, FaDatabase, FaNodeJs } from 'react-icons/fa';
+import { TbBrandNextjs } from 'react-icons/tb';
 
 const Skills = () => {
     const skills = [
         { id: 1, icon: <FaReact className="skill-icon" />, name: 'React.js' },
-        { id: 2, icon: <FaPython className="skill-icon" />, name: 'Django' },
-        { id: 3, icon: <FaDatabase className="skill-icon" />, name: 'SQL' },
-        { id: 4, icon: <FaNodeJs className="skill-icon" />, name: 'Node.js' },
+        { id: 2, icon: <TbBrandNextjs className="skill-icon" />, name: 'Next.js' },
+        { id: 3, icon: <FaPython className="skill-icon" />, name: 'Django' },
+        { id: 4, icon: <FaDatabase className="skill-icon" />, name: 'SQL' },
+        { id: 5, icon: <FaNodeJs className="skill-icon" />, name: 'Node.js' },
       ];
     
       const [marqueeOffset, setMarqueeOffset] = useState(0);
