@@ -8,6 +8,7 @@ import easycarImg from '../assets/easycar.png';
 import simbasImg from '../assets/simbas.png';
 import charityImg from '../assets/charity.png';
 import withiresImg from '../assets/withhires.png';
+import WeownMockImg from '../assets/WeownMock.png';
 import resumePDF from '../assets/resume.pdf';
 import Skills from './Skills';
 
@@ -33,6 +34,10 @@ const Hero = () => {
     {
       src: withiresImg,
       alt: 'Charity',
+    },
+    {
+      src: WeownMockImg,
+      alt: 'Weown',
     },
   ];
 
