@@ -4,7 +4,7 @@ import { FaReact, FaPython, FaDatabase, FaNodeJs } from 'react-icons/fa';
 
 const Skills = () => {
     const skills = [
-        { id: 1, icon: <FaReact className="skill-icon" />, name: 'ReactJS' },
+        { id: 1, icon: <FaReact className="skill-icon" />, name: 'React.js' },
         { id: 2, icon: <FaPython className="skill-icon" />, name: 'Django' },
         { id: 3, icon: <FaDatabase className="skill-icon" />, name: 'SQL' },
         { id: 4, icon: <FaNodeJs className="skill-icon" />, name: 'Node.js' },
