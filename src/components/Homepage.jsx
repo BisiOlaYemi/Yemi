@@ -2,13 +2,15 @@ import React from "react";
 
 const Homepage = () => {
   return (
+    <div className="flex items-center justify-center min-h-screen bg-black">
+    <div className="w-full max-w-6xl p-4 border border-md rounded-lg bg-neutral-900 shadow-lg mt-4 mb-4">
     <div className="grid grid-cols-2">
       {/* First section (Privacy Policy) */}
       <div className="col-span-1">
-        <div className="p-8 max-w-2xl mt-24">
-          <div className="border-solid border mb-4 p-4">
+        <div className="p-8 max-w-2xl">
+          <div className="border-solid border rounded-lg mb-4 p-4">
             <h2 className="text-lg font-bold border-b-2 pb-2">Privacy Policy</h2>
-            <p className="mb-4">
+            <p className="mb-4 text-white">
               At [Your Company Name], we take your privacy seriously. This Privacy
               Policy outlines how we collect, use, and protect the personal
               information you provide to us through our website.
@@ -17,23 +19,23 @@ const Homepage = () => {
         </div>
       </div>
       {/* Second section (Information Collection) */}
-      <div className="col-span-1 mt-24">
+      <div className="col-span-1">
         <div className="p-8 max-w-2xl">
           <div className="border-solid border mb-4 p-4">
-            <h2 className="text-lg font-bold border-b-2 pb-2">Information Collection</h2>
+            <h2 className="text-lg text-white font-bold border-b-2 pb-2">Information Collection</h2>
             <p className="mb-4">
               We collect personal information such as your name, email address, and
               contact details when you voluntarily submit them to us through our
               website forms or other means of communication.
             </p>
-            <p className="mb-4">
+            <p className="mb-4 text-white">
               The personal information we collect is used to provide you with the
               services and information you request. We may also use this information
               to improve our website, customize your user experience, and send you
               relevant updates or promotional materials.
             </p>
             <h3 className="text-lg font-bold mb-2">Information Protection</h3>
-            <p className="mb-4">
+            <p className="mb-4 text-white">
               We implement strict security measures to safeguard your personal
               information from unauthorized access, disclosure, or alteration. We do
               not share your information with third parties unless required by law or
@@ -49,16 +51,10 @@ const Homepage = () => {
             </p>
           </div>
 
-          {/* Contact Information 
-          <div className="items-center justify-center mb-12">
-            <h3 className="text-xl font-sembold mb-2">Contact us:</h3>
-            <ul className="list-disc pr-6">
-              <li>Email: info@yourcompany.com</li>
-              <li>Phone: 123-456-7890</li>
-              <li>Address: 123 Main Street, City, State, ZIP</li>
-            </ul>
-          </div>*/}
+          
         </div>
+      </div>
+      </div>
       </div>
       {/* Media query for mobile responsiveness */}
       <style>
