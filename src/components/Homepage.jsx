@@ -27,7 +27,7 @@ const Homepage = () => {
             <NavRender selectedProgram={selectedProgram} onProgramClick={handleProgramClick} />
 
             {/* Render the content based on the selected program */}
-            <div className="mt-4">
+            <div className="">
               {/* {selectedProgram === 1 && <AboutMe />} */}
               {selectedProgram === 2 && <Resume />}
               {selectedProgram === 3 && <Projects />}
