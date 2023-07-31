@@ -29,17 +29,17 @@ const SideDetail = () => {
                 </div>
                 <ul className="flex space-x-4">
                   <li>
-                    <a href="https://www.linkedin.com/yemiogunrinde" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/yemiogunrinde/" target="_blank" rel="noopener noreferrer">
                       <SiLinkedin className="text-white hover:text-blue-500 transition duration-300" />
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.twitter.com/BisiOlaYemi1" target="_blank" rel="noopener noreferrer">
+                    <a href="https://twitter.com/yemioogunrinde" target="_blank" rel="noopener noreferrer">
                       <SiTwitter className="text-white hover:text-blue-400 transition duration-300" />
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.github.com/BisiOlaYemi" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/BisiOlaYemi" target="_blank" rel="noopener noreferrer">
                       <SiGithub className="text-white hover:text-gray-600 transition duration-300" />
                     </a>
                   </li>
