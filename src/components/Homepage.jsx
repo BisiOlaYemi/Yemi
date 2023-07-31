@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SideDetail from './SideDetail';
 import NavRender from './NavRender';
-import AboutMe from './Files/AboutMe';
+// import AboutMe from './Files/AboutMe';
 import Resume from './Files/Resume';
 import Projects from './Files/Projects';
 import Contact from './Files/Contact';
@@ -28,7 +28,7 @@ const Homepage = () => {
 
             {/* Render the content based on the selected program */}
             <div className="mt-4">
-              {selectedProgram === 1 && <AboutMe />}
+              {/* {selectedProgram === 1 && <AboutMe />} */}
               {selectedProgram === 2 && <Resume />}
               {selectedProgram === 3 && <Projects />}
               {selectedProgram === 4 && <Contact />}
