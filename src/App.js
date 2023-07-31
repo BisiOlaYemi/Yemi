@@ -1,11 +1,11 @@
-import Hero from "./components/Hero";
-// import Homepage from "./components/Homepage";
+// import Hero from "./components/Hero";
+import Homepage from "./components/Homepage";
 
 function App() {
   return (
     <div className="">
-      <Hero />
-      {/* <Homepage /> */}
+       {/* <Hero /> */}
+      <Homepage />
     </div>
   );
 }
