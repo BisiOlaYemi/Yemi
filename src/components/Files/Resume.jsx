@@ -3,7 +3,7 @@ import React from 'react';
 const Resume = () => {
   return (
     <div className="text-white">
-      {/* Your Resume content goes here */}
+      <h1 className='text-white'>Hello Re</h1>
     </div>
   );
 };

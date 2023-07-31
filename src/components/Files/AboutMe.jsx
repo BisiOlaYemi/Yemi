@@ -3,7 +3,7 @@ import React from 'react';
 const AboutMe = () => {
   return (
     <div className="text-white">
-      {/* Your About Me content goes here */}
+      <h1 className='text-white'>Hello World</h1>
     </div>
   );
 };
