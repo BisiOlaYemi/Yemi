@@ -20,7 +20,7 @@ const Resume = () => {
         <div className="thread" />
         <h2 className="text-2xl font-bold mb-4 relative z-10"><span className='text-indigo-600'>Work Experience</span></h2>
         <p className="font-bold">Software Developer, Careerhaven Consulting Inc (Remote)</p>
-        <p className="text-rose-700">Jan 2023 - June 2023</p>
+        <p className="text-rose-900">Jan 2023 - June 2023</p>
         <ul className="list-disc list-inside">
           <li>
           Successfully developed a sophisticated web application from scratch utilizing
@@ -40,7 +40,7 @@ const Resume = () => {
       <div className="mb-8">
         <div className="thread" />
         <p className="font-bold">Software Developer, Readyflow Service Limited (Hybrid)</p>
-        <p className="text-rose-700">Mar 2020 - Nov 2022</p>
+        <p className="text-rose-900">Mar 2020 - Nov 2022</p>
         <ul className="list-disc list-inside">
           <li>
             Built and successfully created a system backup for over 35,000+ customer (users) directory using SQL 
