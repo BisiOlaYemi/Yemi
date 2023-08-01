@@ -23,12 +23,8 @@ const Homepage = () => {
           </div>
           {/* Second section (Information Collection) */}
           <div className="md:col-span-4 p-8 border-solid border rounded-lg">
-            {/* Navigation bar */}
             <NavRender selectedProgram={selectedProgram} onProgramClick={handleProgramClick} />
-
-            {/* Render the content based on the selected program */}
             <div className="">
-              {/* {selectedProgram === 1 && <AboutMe />} */}
               {selectedProgram === 2 && <Resume />}
               {selectedProgram === 3 && <Projects />}
               {selectedProgram === 4 && <Contact />}
