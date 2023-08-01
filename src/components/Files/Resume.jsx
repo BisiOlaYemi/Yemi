@@ -43,7 +43,22 @@ const Resume = () => {
           </li>
         </ul>
       </div>
-
+      <div className="mb-8">
+        <div className="thread" />
+        <p className="font-bold">Software Developer, Readyflow Service Limited (Hybrid)</p>
+        <p className="text-rose-900">Mar 2020 - Nov 2022</p>
+        <ul className="list-disc list-inside">
+          <li>
+            Built and successfully created a system backup for over 35,000+ customer (users) directory using SQL
+          </li>
+          <li>
+            Developed two custom web applications using PHP, SQL, JavaScript core technologies, and Python Django.
+          </li>
+          <li>
+            Created and monitored Google Analytics for all company-associated websites, resulting in a substantial 30% upturn
+          </li>
+        </ul>
+      </div>
       <div className="mb-8">
         <div className="thread" />
         <h2 className="text-2xl font-bold mb-4 relative z-10">
