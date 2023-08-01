@@ -1,11 +1,24 @@
 import React from "react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-  };
+  const handleSubmit = async (form) => {
+    const formData = new FormData(form);
 
+    const serviceID = "service_v093t5n";
+    const templateID = "template_tbgieeo";
+    const userID = "Zzg0F1ETKkV5Bke5X";
+
+    try {
+      await emailjs.sendForm(serviceID, templateID, formData, userID);
+
+      console.log("Form submitted successfully!");
+
+      form.reset(); 
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
+  };
   return (
     <div className="flex flex-col md:flex-row h-fit mt-12">
       <div className="md:w-1/2 p-8">
@@ -16,7 +29,7 @@ const Contact = () => {
         />
       </div>
       <div className=" md:w-1/2 p-8">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e.target)}>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
               <label
