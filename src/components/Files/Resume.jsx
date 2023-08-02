@@ -73,7 +73,7 @@ const Resume = () => {
           
         </ul>
       </div>
-
+      <hr className="border-t-1 border-gray-400 w-full mx-auto my-4 mb-6" />
       <div className="mb-8">
         <div className="thread" />
         <h2 className="text-2xl font-bold mb-4 relative z-10">
