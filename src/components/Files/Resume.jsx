@@ -61,6 +61,21 @@ const Resume = () => {
       </div>
       <div className="mb-8">
         <div className="thread" />
+        <p className="font-bold">Software Developer, Borosmart uba (Onsite)</p>
+        <p className="text-rose-900">Aug 2018 - Nov 2019</p>
+        <ul className="list-disc list-inside">
+          <li>
+            Led the development team in enhancing a secure backend system, resulting in a notable 50% decrease in system vulnerabilities.
+          </li>
+          <li>
+            Successfully automated business processes by building custom SharePoint-based applications 
+          </li>
+          
+        </ul>
+      </div>
+
+      <div className="mb-8">
+        <div className="thread" />
         <h2 className="text-2xl font-bold mb-4 relative z-10">
           <FaGraduationCap className="inline mr-2 mb-1" />
           <span className='text-indigo-600'>Education</span>
