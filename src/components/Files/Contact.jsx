@@ -2,23 +2,23 @@ import React from "react";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
-  const handleSubmit = async (form) => {
-    const formData = new FormData(form);
+  const form = React.useRef();
 
-    const serviceID = "service_v093t5n";
-    const templateID = "template_tbgieeo";
-    const userID = "Zzg0F1ETKkV5Bke5X";
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-    try {
-      await emailjs.sendForm(serviceID, templateID, formData, userID);
-
-      console.log("Form submitted successfully!");
-
-      form.reset(); 
-    } catch (error) {
-      console.error("Form submission error:", error);
-    }
+    emailjs
+      .sendForm("service_lkbqj2r", "template_sq1kmw3", form.current, "f_PU0PzBn9OomU0oW")
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
+
   return (
     <div className="flex flex-col md:flex-row h-fit mt-12">
       <div className="md:w-1/2 p-8">
@@ -28,71 +28,40 @@ const Contact = () => {
           className="w-full h-full rounded-xl hover:scale-105 transition-all duration-300"
         />
       </div>
-      <div className=" md:w-1/2 p-8">
-        <form onSubmit={(e) => handleSubmit(e.target)}>
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div>
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-semibold text-white"
-              >
-                First Name
-              </label>
-              <input
-                type="text"
-                id="first-name"
-                className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Enter your first name"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-semibold text-white"
-              >
-                Last Name
-              </label>
-              <input
-                type="text"
-                id="last-name"
-                className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Enter your last name"
-              />
-            </div>
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-semibold text-white"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your email address"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="message"
-              className="block text-sm font-semibold text-white"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows="4"
-              className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your message"
-            />
-          </div>
+      <div className="md:w-1/2 p-8">
+        <form ref={form} onSubmit={sendEmail}>
+          <label htmlFor="user_name" className="block mb-2 font-medium text-gray-700">
+            Name
+          </label>
+          <input
+            type="text"
+            id="user_name"
+            name="user_name"
+            className="block w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+          <label htmlFor="user_email" className="block mb-2 font-medium text-gray-700">
+            Email
+          </label>
+          <input
+            type="email"
+            id="user_email"
+            name="user_email"
+            className="block w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+          <label htmlFor="message" className="block mb-2 font-medium text-gray-700">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={8}
+            className="block w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
           <button
             type="submit"
-            className="bg-indigo-800 text-white px-4 py-2 font-bold rounded-md hover:bg-gray-600 hover:scale-105 transition-all duration-300"
+            className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
           >
-            Send Message
+            Send
           </button>
         </form>
       </div>
