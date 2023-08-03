@@ -16,7 +16,7 @@ const Resume = () => {
           <span className='text-indigo-600'>Summary</span>
         </h2>
         <p>
-            Being a software developer (frontend and backend) with more than 4 + years of experience, I have worked with over 30 cross-functional software development team at various levels. I am dedicated to identifying clients’ need and delivering effective solution to all problems that revolve around build, iterate and deploy, including expertise in solution optimization, and AWS Cloud computing. 
+            As a software developer with over 4 years of experience in both frontend and backend development, I have collaborated with over 30 cross-functional software development teams at various levels. My dedication lies in identifying clients' needs and delivering effective solutions for all aspects of the software development process, including build, iteration, and deployment. Additionally, I possess expertise in solution optimization and AWS Cloud computing. 
         </p>
       </div>
       <hr className="border-t-1 border-gray-400 w-full mx-auto my-4 mb-6" />
