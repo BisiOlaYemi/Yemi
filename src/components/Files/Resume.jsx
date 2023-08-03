@@ -13,6 +13,17 @@ const Resume = () => {
         <div className="thread" />
         <h2 className="text-2xl font-bold mb-4 relative z-10">
           <FaStar className="inline mr-2 mb-2" />
+          <span className='text-indigo-600'>Summary</span>
+        </h2>
+        <p>
+            Being a software developer (frontend and backend) with more than 4 + years of experience, I have worked with over 30 cross-functional software development team at various levels. I am dedicated to identifying clients’ need and delivering effective solution to all problems that revolve around build, iterate and deploy, including expertise in solution optimization, and AWS Cloud computing. 
+        </p>
+      </div>
+      <hr className="border-t-1 border-gray-400 w-full mx-auto my-4 mb-6" />
+      <div className="mb-8">
+        <div className="thread" />
+        <h2 className="text-2xl font-bold mb-4 relative z-10">
+          <FaStar className="inline mr-2 mb-2" />
           <span className='text-indigo-600'>Skills</span>
         </h2>
         <p>
