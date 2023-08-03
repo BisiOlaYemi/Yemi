@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
+import { MdSummarize } from 'react-icons/md';
 
 const Resume = () => {
   return (
@@ -12,7 +13,7 @@ const Resume = () => {
       <div className="mb-8">
         <div className="thread" />
         <h2 className="text-2xl font-bold mb-4 relative z-10">
-          <FaStar className="inline mr-2 mb-2" />
+          <MdSummarize className="inline mr-2 mb-2" />
           <span className='text-indigo-600'>Summary</span>
         </h2>
         <p>
