@@ -34,6 +34,10 @@ const Projects = () => {
       imageUrl: 'https://img.freepik.com/premium-vector/freelance-man-work-comfortable-cozy-home-office-kitchen-flat-illustration-freelancer-man-character-working-from-home-relaxed-pace-self-employed-concept_165217-303.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=sph',
       link: 'https://enhancz.vercel.app/',
     },
+    {
+      imageUrl: 'https://img.freepik.com/premium-vector/man-is-using-lot-smartphone-apps_18660-3029.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=ais',
+      link: 'https://enhancz.vercel.app/',
+    },
   ];
 
   return (
