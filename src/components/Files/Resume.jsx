@@ -28,7 +28,7 @@ const Resume = () => {
           <span className='text-indigo-600'>Skills</span>
         </h2>
         <p>
-          JavaScript | React | Next JS | Redux | Tailwind CSS | HTML5 | CSS3 | GIT | Node| JQuery | Express | Axios | RestAPIs | MySQL | Django | NoSQL | OOP | CRUD | Backend | PHP Distributed system | AWS Cloud Computing | Frontend | Lambda | Full Stack | VPS | Nginx | Postgresql | Wordpress | MongoDB | PowerApps | Golang | SharedPoint | English – Professional
+          JavaScript | TypeScript | React | Next JS | Redux | Tailwind CSS | HTML5 | CSS3 | GIT | Node| JQuery | Express | Axios | RestAPIs | MySQL | Django | NoSQL | OOP | CRUD | Backend | PHP Distributed system | AWS Cloud Computing | Frontend | Lambda | Full Stack | VPS | Nginx | Postgresql | Wordpress | MongoDB | PowerApps | Golang | SharedPoint | English – Professional
         </p>
       </div>
       <hr className="border-t-1 border-gray-400 w-full mx-auto my-4 mb-6" />
