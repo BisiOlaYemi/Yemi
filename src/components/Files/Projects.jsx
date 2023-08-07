@@ -36,7 +36,7 @@ const Projects = () => {
     },
     {
       imageUrl: 'https://img.freepik.com/premium-vector/man-is-using-lot-smartphone-apps_18660-3029.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=ais',
-      link: 'https://enhancz.vercel.app/',
+      link: 'https://challenge-chi-rouge.vercel.app/',
     },
   ];
 
