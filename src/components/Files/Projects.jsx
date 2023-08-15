@@ -24,7 +24,7 @@ const Projects = () => {
     },
     {
       imageUrl: 'https://img.freepik.com/free-vector/placeholder-concept-illustration_114360-4727.jpg?size=626&ext=jpg&ga=GA1.1.149556823.1683788678&semt=sph',
-      link: 'https://registration.careerhaven.ca/',
+      link: '#',
     },
     {
       imageUrl: 'https://img.freepik.com/premium-vector/mobile-calculator-service-smartphone-mobile-finance-technology-mobile-display-vector_3482-7322.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=ais',
