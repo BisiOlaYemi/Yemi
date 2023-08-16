@@ -14,7 +14,7 @@ const Homepage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center bg-gray-950">
+    <div className="flex items-center justify-center bg-green-950">
       <div className="w-full max-w-8xl p-4 mb-4">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {/* First section (Sidebar) */}
