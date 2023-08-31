@@ -7,6 +7,10 @@ const Projects = () => {
       link: 'https://readycars.ng/',
     },
     {
+      imageUrl: 'https://img.freepik.com/premium-vector/composition-3d-plane-truck-pile-boxes-vector-illustration-advertising-transportation-any-type-difficult-long-routes-oversized-cargo-template-web-page-phone-application_913036-592.jpg?size=626&ext=jpg&ga=GA1.1.149556823.1683788678&semt=ais',
+      link: 'https://www.royalheritageintenterprises.com/',
+    },
+    {
       imageUrl: 'https://img.freepik.com/free-vector/focused-tiny-people-reading-books_74855-5836.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=sph',
       link: 'https://careerhaven.ca/',
     },
