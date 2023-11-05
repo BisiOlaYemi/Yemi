@@ -95,6 +95,12 @@ const Resume = () => {
         <p>
           Bachelor of Science in Business Admin, Bangalore University, 2016
         </p>
+        <p>
+          Fundamentals of Web Development, CMS Computers Limited (India) 2016
+        </p>
+        <p>
+          CS50's Introduction to Computer Science, Harvard University (edX), 2023
+        </p>
       </div>
     </div>
   );
