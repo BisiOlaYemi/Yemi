@@ -1,7 +1,6 @@
 import React from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaXTwitter } from "react-icons/fa";
 import { SiLinkedin, SiGithub } from "react-icons/si";
-import { FaXTwitter } from "react-icons/fa"
 import yemi from '../assets/yemi.png'
 
 const SideDetail = () => {
