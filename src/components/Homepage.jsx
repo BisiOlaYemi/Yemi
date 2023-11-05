@@ -25,7 +25,7 @@ const Homepage = () => {
           <div className="md:col-span-4 p-8 border-solid border rounded-lg">
             <NavRender selectedProgram={selectedProgram} onProgramClick={handleProgramClick} />
             <div className="">
-              {selectedProgram === 2 && <Resume />}
+              {/* {selectedProgram === 2 && <Resume />} */}
               {selectedProgram === 3 && <Projects />}
               {selectedProgram === 4 && <Contact />}
             </div>
