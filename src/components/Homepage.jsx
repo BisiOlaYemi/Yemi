@@ -7,7 +7,7 @@ import Projects from './Files/Projects';
 import Contact from './Files/Contact';
 
 const Homepage = () => {
-  const [selectedProgram, setSelectedProgram] = useState(2);
+  const [selectedProgram, setSelectedProgram] = useState(3);
 
   const handleProgramClick = (programId) => {
     setSelectedProgram(programId);
