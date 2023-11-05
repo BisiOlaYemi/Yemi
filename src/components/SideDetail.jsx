@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
-import { SiLinkedin, SiTwitter, SiGithub } from "react-icons/si";
+import { SiLinkedin, SiGithub } from "react-icons/si";
+import { FaXTwitter } from "react-icons/fa"
 import yemi from '../assets/yemi.png'
 
 const SideDetail = () => {
@@ -35,7 +36,7 @@ const SideDetail = () => {
                   </li>
                   <li>
                     <a href="https://twitter.com/yemioogunrinde" target="_blank" rel="noopener noreferrer">
-                      <SiTwitter className="text-white hover:text-blue-400 transition duration-300" />
+                      <FaXTwitter className="text-white hover:text-blue-400 transition duration-300" />
                     </a>
                   </li>
                   <li>
