@@ -32,7 +32,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      {/* Media query for mobile responsiveness */}
+      
       <style>
       {`
           @media (max-width: 767px) {
