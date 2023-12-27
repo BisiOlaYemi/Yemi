@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import SideDetail from './SideDetail';
 import NavRender from './NavRender';
-// import AboutMe from './Files/AboutMe';
-// import Resume from './Files/Resume';
+
 import Projects from './Files/Projects';
 import Contact from './Files/Contact';
 
