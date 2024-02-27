@@ -20,7 +20,7 @@ const Home = () => {
           and implementing end-to-end solutions that drive innovation.
           </p>
           <Link to="/contact">
-            <button className="bg-blue-950 text-white md:px-7 px-4 py-2 text-lg rounded-lg hover:bg-gray-800 hover:scale-105 transition-all duration-300 mt-12">Get in touch</button>
+            <button className="bg-amber-500 text-white md:px-7 px-4 py-2 text-lg rounded-lg hover:bg-gray-800 hover:scale-105 transition-all duration-300 mt-12">Get in touch</button>
           </Link>
         </div>
         <div className="md:w-1/2">
