@@ -1,11 +1,14 @@
 // import Hero from "./components/Hero";
-import Homepage from "./components/Homepage";
+import Home from "./components/Home";
+// import Homepage from "./components/Homepage";
+
 
 function App() {
   return (
     <div className="">
        {/* <Hero /> */}
-      <Homepage />
+      {/* <Homepage /> */}
+      <Home />
     </div>
   );
 }
