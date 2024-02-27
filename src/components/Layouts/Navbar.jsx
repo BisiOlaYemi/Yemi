@@ -28,20 +28,10 @@ const Navbar = () => {
             </Link>
           </li>
           <li className=" font-[Open Sans] text-lg text-gray-800">
-            <Link to="/Projects" className="hover:text-gray-800">
+            <Link to="/ProjectList" className="hover:text-gray-800">
               Projects
             </Link>
           </li>
-          {/* <li className="font-semibold font-[Poppins] text-lg text-gray-800">
-            <Link to="/services" className="hover:text-gray-800">
-              Services
-            </Link>
-          </li>
-          <li className="font-semibold font-[Poppins] text-lg text-gray-800">
-            <Link to="/contact" className="hover:text-gray-800">
-              Contact
-            </Link>
-          </li> */}
         </ul>
       </div>
       {navOpen && (
@@ -57,16 +47,7 @@ const Navbar = () => {
                 Projects
               </Link>
             </li>
-            {/* <li className="font-semibold text-xl text-white">
-              <Link to="/services" className="hover:text-green-800">
-                Services
-              </Link>
-            </li>
-            <li className="font-semibold text-xl text-white">
-              <Link to="/contact" className="hover:text-green-800">
-                Contact us
-              </Link>
-            </li> */}
+            
           </ul>
         </div>
       )}

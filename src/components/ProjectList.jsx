@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import SideDetail from './SideDetail';
 import NavRender from './NavRender';
@@ -5,7 +6,7 @@ import NavRender from './NavRender';
 import Projects from './Files/Projects';
 import Contact from './Files/Contact';
 
-const Projects = () => {
+const ProjectList = () => {
   const [selectedProgram, setSelectedProgram] = useState(3);
 
   const handleProgramClick = (programId) => {
@@ -16,11 +17,9 @@ const Projects = () => {
     <div className="flex items-center justify-center bg-gray-950">
       <div className="w-full max-w-8xl p-4 mb-4">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          {/* First section (Sidebar) */}
           <div className="md:col-span-1 p-8 md:w-[90%]">
             <SideDetail />
           </div>
-          {/* Second section (Information Collection) */}
           <div className="md:col-span-4 p-8 border-solid border rounded-lg">
             <NavRender selectedProgram={selectedProgram} onProgramClick={handleProgramClick} />
             <div className="">
@@ -45,4 +44,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectList;
