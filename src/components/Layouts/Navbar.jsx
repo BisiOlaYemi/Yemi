@@ -21,7 +21,7 @@ const Navbar = () => {
           className="z-20 text-black font-bold cursor-pointer lg:hidden"
           size={35}
         />
-        <ul className="hidden lg:flex space-x-8">
+        <ul className="hidden lg:flex space-x-8 pr-4">
           <li className="font-semibold font-[Open Sans] text-lg text-gray-800">
             <Link to="/" className="hover:text-gray-800">
               Home
