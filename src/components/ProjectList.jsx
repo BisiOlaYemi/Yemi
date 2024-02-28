@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import SideDetail from './SideDetail';
 import NavRender from './NavRender';
-
+import { Link } from 'react-router-dom';
 import Projects from './Files/Projects';
 import Contact from './Files/Contact';
 
@@ -22,6 +22,9 @@ const ProjectList = () => {
           </div>
           <div className="md:col-span-4 p-8 border-solid border rounded-lg">
             <NavRender selectedProgram={selectedProgram} onProgramClick={handleProgramClick} />
+            <Link to="/" className="text-white">
+            <button className="bg-gray-900 text-white md:px-7 px-0 py-1 text-lg rounded-lg hover:bg-blue-400 hover:scale-105 transition-all duration-300 font-semibold">Back</button>
+            </Link>
             <div className="">
               {/* {selectedProgram === 2 && <Resume />} */}
               {selectedProgram === 3 && <Projects />}
