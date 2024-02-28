@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const currentYear = new Date().getFullYear(); 
 const Footer = () => {
@@ -19,13 +19,13 @@ const Footer = () => {
         </div>
         <hr className="border-t border-gray-400 my-4" />
         <div className="flex justify-center items-center space-x-4 mt-6">
-          <Link to="#" className="text-white hover:text-gray-400">
-            <FaFacebook size={24} />
+          <Link to="https://github.com/BisiOlaYemi" className="text-white hover:text-gray-400">
+            <FaGithub size={24} />
           </Link>
-          <Link to="#" className="text-white hover:text-gray-400">
+          <Link to="https://twitter.com/yemioogunrinde/" className="text-white hover:text-gray-400">
             <FaTwitter size={24} />
           </Link>
-          <Link to="#" className="text-white hover:text-gray-400">
+          <Link to="https://www.linkedin.com/in/yemiogunrinde/" className="text-white hover:text-gray-400">
             <FaLinkedin size={24} />
           </Link>
         </div>
