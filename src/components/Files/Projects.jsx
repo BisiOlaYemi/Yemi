@@ -51,9 +51,9 @@ const Projects = () => {
         {projectsData.map((project, index) => (
           <div key={index} className=" rounded-xl overflow-hidden drop-shadow-lg hover:scale-105 transition-all duration-300">
             <img src={project.imageUrl} alt={`Project ${index + 1}`} className="object-cover w-full h-48" />
-            <a href={project.link} target="_blank" rel="noopener noreferrer" className="block text-center mt-4 mb-2 text-white font-bold">
-              View the App
-            </a>
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="block text-center mt-4 mb-2 text-white font-bold">
+                Visit App
+              </a>
           </div>
         ))}
       </div>
