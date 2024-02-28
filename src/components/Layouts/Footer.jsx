@@ -5,14 +5,14 @@ import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 const currentYear = new Date().getFullYear(); 
 const Footer = () => {
   return (
-    <footer className="relative bg-gray-950 text-white mt-24">
+    <footer className="relative bg-black text-white mt-24">
       <div className="absolute inset-0 opacity-80"></div>
       <div className="relative container mx-auto py-10 mb-8">
         <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
           <Link to="/" className="hover:text-gray-400">
             Home
           </Link>
-          <Link to="/Projects" className="hover:text-gray-400">
+          <Link to="/ProjectList" className="hover:text-gray-400">
             Projects
           </Link>
           
