@@ -17,7 +17,7 @@ const Projects = () => {
     },
     {
       imageUrl: 'https://img.freepik.com/free-vector/man-search-hiring-job-online-from-laptop_1150-52728.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=sph',
-      link: 'https://withires.uk/',
+      link: 'https://withires.vercel.app/',
     },
     {
       imageUrl: 'https://img.freepik.com/premium-vector/money-donation-concept-with-people-putting-coins-charity-donation-campaign_605858-246.jpg?size=626&ext=jpg&ga=GA1.1.149556823.1683788678&semt=sph',
