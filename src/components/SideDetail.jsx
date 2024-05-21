@@ -26,7 +26,7 @@ const SideDetail = () => {
         </div>
         <div className="flex items-center mb-12">
           <FaMapMarkerAlt className="mr-2 text-white" />
-          <p className="text-white">Lagos, Nigeria</p>
+          <p className="text-white">Ibadan, Nigeria</p>
         </div>
         <ul className="flex space-x-4">
           <li>
