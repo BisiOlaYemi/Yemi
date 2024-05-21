@@ -12,7 +12,7 @@ const Projects = () => {
       link: 'https://careerhaven.ca/',
     },
     {
-      imageUrl: 'https://img.freepik.com/premium-photo/fun-3d-illustration-cartoon-kid-with-rain-gear_183364-66779.jpg?w=740',
+      imageUrl: 'https://img.freepik.com/premium-psd/3d-rendering-people-shopping_23-2149910735.jpg?w=740',
       link: 'https://all-errands.com/',
     },
     {
