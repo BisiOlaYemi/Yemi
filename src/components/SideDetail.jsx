@@ -35,7 +35,7 @@ const SideDetail = () => {
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/yemioogunrinde" target="_blank" rel="noopener noreferrer">
+            <a href="https://x.com/yemioogunrinde" target="_blank" rel="noopener noreferrer">
               <RiTwitterFill className="text-white hover:text-blue-400 transition duration-300" />
             </a>
           </li>
