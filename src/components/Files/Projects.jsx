@@ -20,6 +20,10 @@ const Projects = () => {
       link: 'https://www.royalheritageintenterprises.com/',
     },
     {
+      imageUrl: 'https://img.freepik.com/free-psd/3d-rendering-family-scene_23-2150123723.jpg?t=st=1716464592~exp=1716468192~hmac=5aae2c19bf48b5fd6b786da5d3d0b09a2594434e56b8d97af0f725d6f2016b96&w=740',
+      link: 'https://preventchildrensocialcare.co.uk/',
+    },
+    {
       imageUrl: 'https://img.freepik.com/free-vector/man-search-hiring-job-online-from-laptop_1150-52728.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=sph',
       link: 'https://withires.vercel.app/',
     },
