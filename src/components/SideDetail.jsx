@@ -15,7 +15,7 @@ const SideDetail = () => {
         <div className="flex items-center mb-8">
           <FaEnvelope className="mr-2 text-white " />
           <a href="mailto:ogunrinde_olayemi@yahoo.com">
-            <span className="text-white">Send an email</span>
+            <span className="text-white">Send email</span>
           </a>
         </div>
         <div className="flex items-center mb-8">
