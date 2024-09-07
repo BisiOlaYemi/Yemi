@@ -27,12 +27,12 @@ export default function Navbar() {
         />
         <ul className="hidden lg:flex space-x-8 mr-4 lg:mr-24">
           <li className="font-bold dancing-script-fine text-2xl text-white">
-            <Link to="/" className="hover:text-gray-800">
+            <Link to="/" className="hover:text-amber-500">
               Home
             </Link>
           </li>
           <li className="font-semibold dancing-script-fine text-2xl text-white">
-            <Link to="/#" className="hover:text-gray-800">
+            <Link to="/#" className="hover:text-amber-500">
               Projects
             </Link>
           </li>
