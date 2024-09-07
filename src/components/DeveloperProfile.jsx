@@ -4,13 +4,15 @@ import aypLogo from '../assets/ayp.svg';
 import lewkLogo from '../assets/Lewk.png';
 import seemlessLogo from '../assets/seemless.png';
 import placioLogo from '../assets/placio.svg';
-import bountipLogo from '../assets/bountipLogo.svg'
+import bountipLogo from '../assets/bountipLogo.svg';
+import readycarLogo from '../assets/readycars.png';
 
 const logos = [
   { src: aypLogo, alt: 'AYP Logo' },
   { src: bountipLogo, alt: 'Bountip Logo' },
   { src: lewkLogo, alt: 'Lewk Logo' },
   { src: placioLogo, alt: 'Placio Logo' },
+  { src: readycarLogo, alt: 'Readycars Logo' },
   { src: seemlessLogo, alt: 'Seemless Logo' },
 ];
 
