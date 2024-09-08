@@ -1,6 +1,17 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { HiPaperAirplane, HiXMark } from 'react-icons/hi2';
 import { IoChatbubbleEllipses } from "react-icons/io5";
+
+const LoadingSpinner = () => (
+  <motion.div
+    className="flex justify-center items-center p-4"
+    animate={{ rotate: 360 }}
+    transition={{ repeat: Infinity, duration: 1 }}
+  >
+    <div className="rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-500"></div>
+  </motion.div>
+);
 
 export default function Component() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +21,7 @@ export default function Component() {
   const [inputMessage, setInputMessage] = useState('');
   const [userName, setUserName] = useState(''); 
   const [awaitingName, setAwaitingName] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
 
   // Q&A
   const predefinedResponses = {
@@ -41,33 +53,54 @@ export default function Component() {
     e.preventDefault();
     if (inputMessage.trim() === '') return;
 
-
     setMessages([...messages, { text: inputMessage, isAi: false }]);
     const userMessage = inputMessage.toLowerCase();
     setInputMessage('');
 
-    // Handle conversation flow
     if (awaitingName) {
       setUserName(inputMessage);
       setAwaitingName(false);
       setMessages(prev => [...prev, { text: `Welcome, ${inputMessage}! How can I assist you today?`, isAi: true }]);
     } else if (userMessage.includes("hi") || userMessage.includes("hello") || userMessage.includes("hey")) {
-
       setMessages(prev => [...prev, { text: "Hello! May I know your name?", isAi: true }]);
       setAwaitingName(true);
     } else {
-      
-      const response = predefinedResponses[userMessage];
+      setIsLoading(true);  // Start loading
 
+      const response = predefinedResponses[userMessage];
+      
+      // Simulate typing effect
       setTimeout(() => {
+        setIsLoading(false);  // Stop loading after delay
         if (response) {
-          setMessages(prev => [...prev, { text: response, isAi: true }]);
+          typeOutResponse(response);
         } else {
-          
-          setMessages(prev => [...prev, { text: "I'm not sure about that. Please contact Yemi via email for more details.", isAi: true }]);
+          typeOutResponse("I'm not sure about that. Please contact Yemi via email for more details.");
         }
-      }, 1000);
+      }, 1000); // Wait for 1 second to simulate "thinking"
     }
+  };
+
+  const typeOutResponse = (response) => {
+    let index = 0;
+    const typingSpeed = 50; // Adjust typing speed here
+
+    const intervalId = setInterval(() => {
+      setMessages(prevMessages => {
+        const lastMessage = prevMessages[prevMessages.length - 1];
+        if (lastMessage.isAi) {
+          lastMessage.text += response[index];
+        } else {
+          prevMessages.push({ text: response[index], isAi: true });
+        }
+        return [...prevMessages];
+      });
+      index++;
+
+      if (index >= response.length) {
+        clearInterval(intervalId);
+      }
+    }, typingSpeed);
   };
 
   return (
@@ -100,6 +133,7 @@ export default function Component() {
                 {message.text}
               </div>
             ))}
+            {isLoading && <LoadingSpinner />}
           </div>
           <form onSubmit={handleSendMessage} className="border-t p-4 flex">
             <input
