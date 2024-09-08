@@ -47,7 +47,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="font-semibold text-xl text-white">
-              <Link to="/ProjectList" className="hover:text-green-800">
+              <Link to="/#" className="hover:text-green-800">
                 Projects
               </Link>
             </li>
