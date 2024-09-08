@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    title: 'Software Engineer',
+    title: 'Backend Developer',
     company: 'AskYourPDF',
     period: '2024 - Ongoing',
     description: 'Collaborating with cross-functional teams to enhance backend functionalities, and contributing to the continuous improvement.'
   },
   {
-    title: 'Software Engineer',
+    title: 'Backend Developer',
     company: 'Breezelearn Tech',
     period: '2023 - 2024',
     description: 'Crafted multiple endpoints aimed at performing end-to-end functionality of a smart restaurant application using Nest.js and ORM.'
