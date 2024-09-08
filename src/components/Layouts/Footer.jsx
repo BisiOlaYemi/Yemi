@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
 
 const currentYear = new Date().getFullYear(); 
 const Footer = () => {
@@ -23,7 +24,7 @@ const Footer = () => {
             <FaGithub size={24} />
           </Link>
           <Link to="https://twitter.com/yemioogunrinde/" className="text-white hover:text-gray-400">
-            <FaTwitter size={24} />
+            <FaXTwitter size={24} />
           </Link>
           <Link to="https://www.linkedin.com/in/yemiogunrinde/" className="text-white hover:text-gray-400">
             <FaLinkedin size={24} />
