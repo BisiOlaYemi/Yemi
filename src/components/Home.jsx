@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import 'tailwindcss/tailwind.css'
 import DeveloperProfile from './DeveloperProfile'
 import WorkExperienceTimeline from './WorkExperienceTimeline'
+import AiChat from './AiChat'
 
 const MovingObject = ({ delay, type }) => {
   const variants = {
@@ -116,6 +117,7 @@ export default function Home() {
         </div>
         <DeveloperProfile />
         <WorkExperienceTimeline />
+        <AiChat />
       </div>
     </MainLayout>
   )
