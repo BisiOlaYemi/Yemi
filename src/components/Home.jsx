@@ -91,7 +91,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <Link to="/#">
+              <Link to="/Contact">
                 <button className="bg-gradient-to-br from-amber-500 to-purple-500 text-white md:px-7 px-4 py-2 text-lg rounded-lg hover:bg-gray-800 hover:scale-105 transition-all duration-300 mt-12">
                   Get in touch
                 </button>
