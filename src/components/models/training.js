@@ -1,4 +1,4 @@
-// Q&A
+// datasets
 const predefinedResponses = {
     "who is yemi?": ".Yemi is a full stack developer with 6 years of experience in both frontend and backend development.",
     "what is your experience?": ".Yemi has experience in various technologies including React, Node.js, Nest, FastApi, MongoDB, PostgreSQL, TypeScript, and more.",
@@ -6,7 +6,7 @@ const predefinedResponses = {
     "what backend technologies do you use?": ".Yemi has extensive experience with Node.js, Nest, and has worked with other backend technologies like Django and FastApi",
     "what databases are you familiar with?": ".Yemi is familiar with both SQL (e.g., MySQL, PostgreSQL) and NoSQL (e.g., MongoDB, Firebase) databases.",
     "what is your favorite project?": ".One of Yemi's favorite projects involved building a real-time chat application with React, Node.js, and Socket.IO.",
-    "tell me about software development?": ".Software development involves designing, creating, deploying, and maintaining software using various technologies and methodologies.",
+    "tell me about software development": ".Software development involves designing, creating, deploying, and maintaining software using various technologies and methodologies.",
     "do you have experience with cloud services?": ".Yes, Yemi has experience working with AWS, Azure, and Google Cloud Platform for deploying and managing applications.",
     "are you open to freelance work?": ".Yes, Yemi is open to freelance opportunities. You can contact him via email for more details.",
     "share yemi email": ".You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com",
@@ -14,7 +14,7 @@ const predefinedResponses = {
     "how can i contact yemi?": ".You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com",
     "ok": ".Think we're good now, You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com for more information",
     "so": ".Think we're good now, You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com for more information",
-    "who": ".Who is not a complete question nor clause but a phrase please provide a complete question I can help with",
+    "who": ".Who is not a complete question nor clause, but a phrase. So please provide a complete question I can help with",
     "?": ".Please repeat your question with a question tag(e.g ?) then I'll be able to answer you if it is what I can respond to",
     "tell me about yemi?": ".I can only respond to you based on what I am trained to answer, as far as I am aware. Yemi has experience in various technologies including React, Node.js, Nest, FastApi, MongoDB, PostgreSQL, TypeScript, and more.",
     "what does yemi do?": ".Yemi is a full stack developer with 6 years of experience in both frontend and backend development. He's loyal and calm but sometimes he doesn't take shit, working with him will be a great experience because he's very good at problem solving, teaching etc.",
