@@ -24,7 +24,7 @@ export default function Component() {
     "do you do freelance work?": "Yes, Yemi is open to freelance opportunities. You can contact him via email for more details.",
     "how can i contact yemi?": "You can contact Yemi via email at ogunrinde_olayemi@yahoo.com",
     "?": "Please repeat your question with a question tag(e.g ?) then I'll be able to answer you if it is what I can respond to",
-    "tell me about yemi?": "You can contact Yemi via email at ogunrinde_olayemi@yahoo.com",
+    "tell me about yemi?": "I can only respond to you based on what I am trained to answer, as far as I am aware. Yemi has experience in various technologies including React, Node.js, Nest, FastApi, MongoDB, PostgreSQL, TypeScript, and more.",
     "what does yemi do?": "Yemi is a full stack developer with 6 years of experience in both frontend and backend development. He's loyal and calm but sometimes he doesn't take shit, working with him will be a great experience because he's very good at problem solving, teaching etc.",
     "can you code?": "Ah hell no, I am not like gpts, I'm only trained to respond to chats as much as I can, you'll need other ai to achieve your aims",
     "what's your own name?": "I'm Akede, a trained Artificial Intelligence by Yemi with sole responsibility to engage users who visit here while away...",
