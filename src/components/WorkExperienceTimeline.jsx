@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     title: 'Backend Developer',
-    company: 'AskYourPDF',
+    company: 'Protonlabs Tech',
     period: '2024 - Ongoing',
     description: 'Collaborating with cross-functional teams to enhance backend functionalities, and contributing to the continuous improvement.'
   },
