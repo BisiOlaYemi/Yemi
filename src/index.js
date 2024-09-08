@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import ProjectList from './components/ProjectList';
+import Contact from './components/Files/Contact';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,6 +12,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/ProjectList" element={<ProjectList />} />
+      <Route path="/Contact" element={<Contact />} />
     </Routes>
   </Router>
 );

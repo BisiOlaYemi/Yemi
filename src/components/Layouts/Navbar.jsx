@@ -27,8 +27,8 @@ export default function Navbar() {
         />
         <ul className="hidden lg:flex space-x-8 mr-4 lg:mr-24">
           <li className="font-bold dancing-script-fine text-2xl text-white">
-            <Link to="/" className="hover:text-amber-500">
-              Home
+            <Link to="/Contact" className="hover:text-amber-500">
+              Contact
             </Link>
           </li>
           <li className="font-semibold dancing-script-fine text-2xl text-white">
@@ -42,8 +42,8 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95">
           <ul className="flex flex-col space-y-4">
             <li className="font-semibold text-xl text-white">
-              <Link to="/" className="hover:text-amber-500">
-                Home
+              <Link to="/Contact" className="hover:text-amber-500">
+                Contact
               </Link>
             </li>
             <li className="font-semibold text-xl text-white">

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -41,6 +43,13 @@ const Contact = () => {
 
   return (
     <div className="flex flex-col md:flex-row h-fit mt-12">
+      <Link to="/" className="ml-4 lg:ml-32">
+          <img 
+            src={logo} 
+            alt="Yemi" 
+            className="w-[100px] h-auto"
+          />
+        </Link>
       <div className="md:w-1/2 p-8">
       <img
           src="https://img.freepik.com/free-vector/emails-concept-illustration_114360-1355.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=sph"
@@ -50,7 +59,7 @@ const Contact = () => {
       </div>
       <div className="md:w-1/2 p-8">
         <form onSubmit={handleSubmit}>
-          <label htmlFor="user_name" className="block mb-2 font-medium text-gray-700">
+          <label htmlFor="user_name" className="block mb-2 font-medium text-white">
             Name
           </label>
           <input
@@ -61,7 +70,7 @@ const Contact = () => {
             onChange={handleChange}
             className="block w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
           />
-          <label htmlFor="user_email" className="block mb-2 font-medium text-gray-700">
+          <label htmlFor="user_email" className="block mb-2 font-medium text-white">
             Email
           </label>
           <input
@@ -72,7 +81,7 @@ const Contact = () => {
             onChange={handleChange}
             className="block w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
           />
-          <label htmlFor="message" className="block mb-2 font-medium text-gray-700">
+          <label htmlFor="message" className="block mb-2 font-medium text-white">
             Message
           </label>
           <textarea
