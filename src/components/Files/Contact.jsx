@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import yemi from '../../assets/yemi.png';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -52,9 +53,9 @@ const Contact = () => {
         </Link>
       <div className="md:w-1/2 p-8">
       <img
-          src="https://img.freepik.com/free-vector/emails-concept-illustration_114360-1355.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=sph"
+          src={yemi}
           alt=""
-          className="w-full h-full lg:mt-24 rounded-xl hover:scale-105 transition-all duration-300"
+          className="w-full h-full lg:mt-16 rounded-xl hover:scale-105 transition-all duration-300"
       />
       </div>
       <div className="md:w-1/2 p-8 lg:mt-24">
