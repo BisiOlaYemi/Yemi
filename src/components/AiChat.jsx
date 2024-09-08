@@ -81,7 +81,7 @@ export default function Component() {
       )}
 
       {isOpen && (
-        <div className="bg-gray-950 rounded-lg shadow-xl w-80 max-h-[500px] flex flex-col">
+        <div className="bg-gray-700 rounded-lg shadow-xl w-80 max-h-[500px] flex flex-col">
           <div className="flex justify-between items-center p-4 border-b">
             <h2 className="text-lg font-semibold text-white">Chat Assistant</h2>
             <button onClick={() => setIsOpen(false)} className="text-white font-semibold hover:text-gray-100">
