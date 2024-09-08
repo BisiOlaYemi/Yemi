@@ -54,10 +54,10 @@ const Contact = () => {
       <img
           src="https://img.freepik.com/free-vector/emails-concept-illustration_114360-1355.jpg?size=626&ext=jpg&ga=GA1.2.149556823.1683788678&semt=sph"
           alt=""
-          className="w-full h-full rounded-xl hover:scale-105 transition-all duration-300"
+          className="w-full h-full lg:mt-24 rounded-xl hover:scale-105 transition-all duration-300"
       />
       </div>
-      <div className="md:w-1/2 p-8">
+      <div className="md:w-1/2 p-8 lg:mt-24">
         <form onSubmit={handleSubmit}>
           <label htmlFor="user_name" className="block mb-2 font-medium text-white">
             Name
