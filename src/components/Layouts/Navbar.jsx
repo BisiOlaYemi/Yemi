@@ -42,12 +42,12 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95">
           <ul className="flex flex-col space-y-4">
             <li className="font-semibold text-xl text-white">
-              <Link to="/" className="hover:text-green-800">
+              <Link to="/" className="hover:text-amber-500">
                 Home
               </Link>
             </li>
             <li className="font-semibold text-xl text-white">
-              <Link to="/#" className="hover:text-green-800">
+              <Link to="/#" className="hover:text-amber-500">
                 Projects
               </Link>
             </li>
