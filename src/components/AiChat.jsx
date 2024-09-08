@@ -23,6 +23,7 @@ export default function Component() {
     "do you have experience with cloud services": "Yes, Yemi has experience working with AWS, Azure, and Google Cloud Platform for deploying and managing applications.",
     "do you do freelance work": "Yes, Yemi is open to freelance opportunities. You can contact him via email for more details.",
     "how can i contact yemi": "You can contact Yemi via email at ogunrinde_olayemi@yahoo.com",
+    "what does yemi do?": "Yemi is a full stack developer with 6 years of experience in both frontend and backend development.",
     "can you code?": "Ah hell no, I am not like gpts, I'm only trained to respond to chats as much as I can, you'll need other ai to achieve your aims",
     "what's your own name?": "I'm Akede, a trained Artificial Intelligence by Yemi with sole responsibility to engage users who visit here while away...",
     "what is your approach to problem-solving": "Yemi approaches problem-solving by first understanding the problem, breaking it down into smaller components, and then systematically tackling each component using appropriate tools and techniques.",
@@ -48,7 +49,7 @@ export default function Component() {
       setUserName(inputMessage);
       setAwaitingName(false);
       setMessages(prev => [...prev, { text: `Welcome, ${inputMessage}! How can I assist you today?`, isAi: true }]);
-    } else if (userMessage.includes("hi") || userMessage.includes("hello")) {
+    } else if (userMessage.includes("hi") || userMessage.includes("hello") || userMessage.includes("hey")) {
 
       setMessages(prev => [...prev, { text: "Hello! May I know your name?", isAi: true }]);
       setAwaitingName(true);
