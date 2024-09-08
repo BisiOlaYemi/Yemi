@@ -51,7 +51,7 @@ export default function Component() {
         if (response) {
           typeOutResponse(response);
         } else {
-          typeOutResponse(".I'm not sure I was trained to respond to this prompt. Please contact Yemi via email for more details.");
+          typeOutResponse(".I'm not sure I was trained to respond to this prompt or you miss the right prompt? make sure there is no single quote in your prompt and consider including question (?) mark at the end of your question. Please contact Yemi via email for more details.");
         }
       }, 1000); 
     }
@@ -101,7 +101,7 @@ export default function Component() {
         <div className="bg-teal-50 rounded-lg shadow-xl w-80 max-h-[500px] flex flex-col">
           <div className="flex justify-between items-center p-4 border-b">
             <h2 className="text-lg font-semibold text-gray-700">Chat Assistant</h2>
-            <button onClick={() => setIsOpen(false)} className="text-gray-800 font-semibold hover:text-gray-100">
+            <button onClick={() => setIsOpen(false)} className="text-gray-800 font-semibold hover:text-gray-800">
               <HiXMark size={20} />
             </button>
           </div>
@@ -110,7 +110,7 @@ export default function Component() {
               <div
                 key={index}
                 className={`${
-                  message.isAi ? 'bg-blue-50 text-blue-800 roboto-regular' : 'bg-gray-100 text-gray-800 roboto-regular'
+                  message.isAi ? 'bg-gray-800 text-base text-white roboto-regular font-semibold' : 'bg-purple-950 text-white text-base font-semibold roboto-regular'
                 } p-2 rounded-lg max-w-[80%] ${message.isAi ? 'mr-auto' : 'ml-auto'}`}
               >
                 {message.text}
