@@ -16,7 +16,7 @@ const predefinedResponses = {
     "so": ".Think we're good now, You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com for more information in case I'm not able to help",
     "who": ".Who is not a complete question nor clause, but a phrase. So please provide a complete question I can help with",
     "?": ".Please repeat your question with a question tag(e.g ?) then I'll be able to answer you if it is what I can respond to",
-    "tell me about yemi?": ".I can only respond to you based on what I am trained to answer, as far as I am aware. Yemi has experience in various technologies including React, Node.js, Nest, FastApi, MongoDB, PostgreSQL, TypeScript, and more.",
+    "tell me about yemi": ".I can only respond to you based on what I am trained to answer, as far as I am aware. Yemi has experience in various technologies including React, Node.js, Nest, FastApi, MongoDB, PostgreSQL, TypeScript, and more.",
     "what does yemi do?": ".Yemi is a full stack developer with 6 years of experience in both frontend and backend development. He's loyal and calm but sometimes he doesn't take shit, working with him will be a great experience because he's very good at problem solving, teaching etc.",
     "can you code?": ".Ah hell no, I am not like others (e.g chatgpt, claude etc), I'm only trained to respond to chats as much as I can, you'll need other ai to achieve your aims",
     "what is your own name?": ".I'm Akede, a trained Artificial Intelligence by Yemi with sole responsibility to engage users who visit here while away...",
