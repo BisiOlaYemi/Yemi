@@ -101,7 +101,7 @@ export default function Component() {
         <div className="bg-teal-50 rounded-lg shadow-xl w-80 max-h-[500px] flex flex-col">
           <div className="flex justify-between items-center p-4 border-b">
             <h2 className="text-lg font-semibold text-gray-700">Chat Assistant</h2>
-            <button onClick={() => setIsOpen(false)} className="text-white font-semibold hover:text-gray-100">
+            <button onClick={() => setIsOpen(false)} className="text-gray-800 font-semibold hover:text-gray-100">
               <HiXMark size={20} />
             </button>
           </div>
