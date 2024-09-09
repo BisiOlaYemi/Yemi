@@ -11,7 +11,7 @@ const predefinedResponses = {
     "are you open to freelance work?": ".Yes, Yemi is open to freelance opportunities. You can contact him via email for more details.",
     "share yemi email": ".You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com",
     "can you suggest question to ask?": ".Ah yes! I can provide you with few questions to ask such as: tell me about software development?, are you open to freelance work?, how can i contact yemi?, can you code?, what is your approach to problem-solving? etc ",
-    "how can i contact yemi?": ".You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com",
+    "how can i contact yemi?": ".You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com hope this helps",
     "ok": ".Think we're good now, You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com for more information in case I'm not able to help",
     "so": ".Think we're good now, You can contact Yemi via his email address at ogunrinde_olayemi@yahoo.com for more information in case I'm not able to help",
     "who": ".Who is not a complete question nor clause, but a phrase. So please provide a complete question I can help with",
