@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <div className="relative z-50">
       <div className="absolute top-0 left-0 w-full p-4 flex justify-between items-center">
-        <Link to="/" className="ml-4 lg:ml-32">
+        <Link to="/" className="ml-4 lg:ml-28">
           <img 
             src={logo} 
             alt="Yemi" 
