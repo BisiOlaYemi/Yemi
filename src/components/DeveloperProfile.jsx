@@ -89,6 +89,8 @@ export default function DeveloperProfile() {
                 <li>Node.js / Nest | Express</li>
                 <li>Python / FastApi | Django</li>
                 <li>Postgresql / MongoDB Databases</li>
+                <li>Docker / K8S</li>
+                <li>AWS | GCP | Azure</li>
               </ul>
             </div>
             <div className="space-y-2 text-gray-300 roboto-regular">
