@@ -1,6 +1,7 @@
 // datasets
 const predefinedResponses = {
     "who is yemi?": ".Yemi is a full stack developer with 6 years of experience in both frontend and backend development.",
+    "How do I know which questions you're trained to answer?": ".You can prompt me with question like: what is your experience?, tell me about software development, can you code?, what is your approach to problem-solving?, what is your experience with testing?, do you have experience with cloud services?",
     "what is your experience?": ".Yemi has experience in various technologies including React, Node.js, Nest, FastApi, MongoDB, PostgreSQL, TypeScript, and more.",
     "what frontend frameworks do you use?": ".Yemi primarily uses React.js/Next.js and has experience with other frameworks like Svelite",
     "what backend technologies do you use?": ".Yemi has extensive experience with Node.js, Nest, and has worked with other backend technologies like Django and FastApi",
