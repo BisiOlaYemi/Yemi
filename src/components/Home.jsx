@@ -81,10 +81,9 @@ export default function Home() {
               transition={{ duration: 0.9, delay: 0.3 }}
               className='mt-2 text-white font-semibold'
             >
-              As a full-stack developer, I thrive on the dynamic interplay
-              between front-end finesse and back-end robustness, bringing visions to life.
-              With expertise spanning both ends of the development spectrum, I excel in architecting
-              and implementing end-to-end solutions that drive innovation.
+              As a backend engineer, I thrive on building robust, scalable architectures that bring complex applications to life.
+              My expertise lies in designing and implementing powerful backend solutions that drive innovation and support seamless
+              user experiences.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}

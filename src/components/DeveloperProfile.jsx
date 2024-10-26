@@ -83,19 +83,18 @@ export default function DeveloperProfile() {
               Experienced in developing scalable and efficient applications using cutting-edge technologies.
             </p>
             <div className="space-y-4">
-              <h2 className="text-2xl roboto-black">Tech Stack</h2>
+              <h2 className="text-2xl roboto-black">Tech Stacks</h2>
               <ul className="list-disc list-inside text-gray-300 roboto-regular">
                 <li>JavaScript / TypeScript</li>
-                <li>React / Next.js</li>
                 <li>Node.js / Nest | Express</li>
                 <li>Python / FastApi | Django</li>
-                <li>SQL / NoSQL Databases</li>
+                <li>Postgresql / MongoDB Databases</li>
               </ul>
             </div>
             <div className="space-y-2 text-gray-300 roboto-regular">
               <p><span className="font-bold">Experience:</span> 6 years</p>
               <p><span className="font-bold">Location:</span> Lisbon, Portugal</p>
-              <p><span className="font-bold">Availability:</span> Remote</p>
+              <p><span className="font-bold">Availability:</span> Remote | Hybrid</p>
             </div>
             <button href="/Contact" className="bg-amber-800 text-white px-8 py-3 rounded-full roboto-bold text-lg hover:bg-gray-700 hover:scale-105 transition-all duration-300">
               Hire me
