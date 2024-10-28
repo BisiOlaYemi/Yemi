@@ -86,6 +86,7 @@ export default function DeveloperProfile() {
               <h2 className="text-2xl roboto-black">Tech Stacks</h2>
               <ul className="list-disc list-inside text-gray-300 roboto-regular">
                 <li>JavaScript / TypeScript</li>
+                <li>React / Next.js</li>
                 <li>Node.js / Nest | Express</li>
                 <li>Python / FastApi | Django</li>
                 <li>Postgresql / MongoDB Databases</li>

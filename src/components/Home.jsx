@@ -81,9 +81,8 @@ export default function Home() {
               transition={{ duration: 0.9, delay: 0.3 }}
               className='mt-2 text-white font-semibold'
             >
-              As a backend engineer, I thrive on building robust, scalable architectures that bring complex applications to life.
-              My expertise lies in designing and implementing powerful backend solutions that drive innovation and support seamless
-              user experiences.
+              I enjoy creating scalable, reliable structures and creating user-friendly front-end experiences that make complicated applications come to life as a full-stack engineer.
+              My specialty is creating dynamic, responsive interfaces, pushing innovation, and delivering flawless end-to-end user experiences while designing and implementing robust backend systems.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
