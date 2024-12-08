@@ -19,6 +19,7 @@ const logos = [
 export default function DeveloperProfile() {
   return (
     <div className="min-h-screen text-white">
+      <h1 className="text-white text-2xl roboto-regular mt-8 text-center justify-center">Companies I have played roles as SE:</h1>
       <header className="container mx-auto py-6 overflow-hidden">
         <motion.div
           className="flex items-center space-x-12"
