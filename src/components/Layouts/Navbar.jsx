@@ -12,9 +12,18 @@ const Navbar = () => {
   };
 
   const projects = [
-    { name: "FinPay Fintech", url: "https://github.com/BisiOlaYemi/finpay" },
-    { name: "Video to ppt/pdf", url: "https://github.com/BisiOlaYemi/convertvideo2pdfppt" },
-    { name: "Web Scrapper", url: "https://github.com/BisiOlaYemi/webscap" }
+    { 
+      name: "FinPay Fintech", 
+      url: "https://github.com/BisiOlaYemi/finpay" 
+    },
+    { 
+      name: "Video to ppt/pdf",
+      url: "https://github.com/BisiOlaYemi/convertvideo2pdfppt" 
+    },
+    { 
+      name: "Web Scrapper",
+      url: "https://github.com/BisiOlaYemi/webscap" 
+    }
   ];
 
   const ProjectsDropdown = ({ isMobile = false }) => (
