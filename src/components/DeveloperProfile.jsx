@@ -100,7 +100,10 @@ export default function DeveloperProfile() {
               <p><span className="font-bold">Location:</span> Lisbon, Portugal</p>
               <p><span className="font-bold">Availability:</span> Remote | Hybrid</p>
             </div>
-            <button href="/Contact" className="bg-amber-800 text-white px-8 py-3 rounded-full roboto-bold text-lg hover:bg-gray-700 hover:scale-105 transition-all duration-300">
+            <button
+              to="/Contact" 
+              className="bg-amber-800 text-white px-8 py-3 rounded-full roboto-bold text-lg hover:bg-gray-700 hover:scale-105 transition-all duration-300"
+            >
               Hire me
             </button>
           </motion.div>
