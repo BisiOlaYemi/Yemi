@@ -12,6 +12,22 @@ const Navbar = () => {
   };
 
   const projects = [
+    {
+      name: "AskyourPdf",
+      url: "https://askyourpdf.com/"
+    },
+    {
+      name: "Bountip ",
+      url: "https://www.bountip.com/"
+    },
+    {
+      name: "Lewk",
+      url: "https://lewkclothing.ca/"
+    },
+    {
+      name: "ReadyCars",
+      url: "https://readycars.ng"
+    },
     { 
       name: "FinPay Fintech", 
       url: "https://github.com/BisiOlaYemi/finpay" 
@@ -23,7 +39,7 @@ const Navbar = () => {
     { 
       name: "Web Scrapper",
       url: "https://github.com/BisiOlaYemi/webscap" 
-    }
+    },
   ];
 
   const ProjectsDropdown = ({ isMobile = false }) => (
