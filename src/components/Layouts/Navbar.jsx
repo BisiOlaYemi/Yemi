@@ -28,6 +28,10 @@ const Navbar = () => {
       name: "ReadyCars",
       url: "https://readycars.ng"
     },
+    {
+      name: "SeamLess HR",
+      url: "https://seamlesshr.com/"
+    },
     { 
       name: "FinPay Fintech", 
       url: "https://github.com/BisiOlaYemi/finpay" 
