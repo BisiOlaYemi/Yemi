@@ -82,7 +82,7 @@ export default function DeveloperProfile() {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <p className="text-gray-300 roboto-regular">
-              Experienced in developing scalable and efficient applications using cutting-edge technologies.
+              Experienced in developing scalable and efficient applications using advanced technologies.
             </p>
             <div className="space-y-4">
               <h2 className="text-2xl roboto-black">Tech Stacks</h2>
