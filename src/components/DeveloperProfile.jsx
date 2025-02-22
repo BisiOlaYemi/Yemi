@@ -6,6 +6,7 @@ import seemlessLogo from '../assets/seemless.png';
 import placioLogo from '../assets/placio.svg';
 import bountipLogo from '../assets/bountipLogo.svg';
 import readycarLogo from '../assets/readycars.png';
+import { Link } from 'react-router-dom';
 
 const logos = [
   { src: aypLogo, alt: 'AYP Logo' },
@@ -100,12 +101,13 @@ export default function DeveloperProfile() {
               <p><span className="font-bold">Location:</span> Lisbon, Portugal</p>
               <p><span className="font-bold">Availability:</span> Remote | Hybrid</p>
             </div>
+            <Link to="/Contact">
             <button
-              to="/Contact" 
               className="bg-amber-800 text-white px-8 py-3 rounded-full roboto-bold text-lg hover:bg-gray-700 hover:scale-105 transition-all duration-300"
             >
               Hire me
             </button>
+          </Link>
           </motion.div>
         </div>
       </main>
