@@ -56,7 +56,7 @@ export default function DeveloperProfile() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-4xl font-bold text-white dancing-script-fine">Software Developer</h1>
+              <h1 className="text-4xl font-bold text-white dancing-script-fine">Software Engineer</h1>
               <p className="text-gray-300 roboto-regular mt-2">
                 Crafting elegant solutions to complex problems
               </p>
