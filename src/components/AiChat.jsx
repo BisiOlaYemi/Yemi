@@ -17,7 +17,7 @@ const LoadingSpinner = () => (
 export default function Component() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Hello! I'm Akede, Yemi's AI assistant. ask me only questions that I am trained on?", isAi: true }
+    { text: "Hello! I'm assistant, Yemi's AI assistant. ask me only questions that I am trained on?", isAi: true }
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [userName, setUserName] = useState(''); 
