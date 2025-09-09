@@ -97,7 +97,7 @@ export default function DeveloperProfile() {
               </ul>
             </div>
             <div className="space-y-2 text-gray-300 roboto-regular">
-              <p><span className="font-bold">Experience:</span> 6+ years</p>
+              <p><span className="font-bold">Experience:</span> 7+ years</p>
               <p><span className="font-bold">Location:</span> Lisbon, Portugal</p>
               <p><span className="font-bold">Availability:</span> Remote | Hybrid</p>
             </div>
