@@ -63,9 +63,11 @@ const Navbar = () => {
           } bg-black/95 rounded-md py-2 min-w-[160px]`}
         >
           {projects.map((project) => (
-            <Link
+            <a
               key={project.name}
-              to={project.url}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="block px-4 py-2 bg-gray-900 text-white hover:text-amber-500 text-lg"
               onClick={() => {
                 setDropdownOpen(false);
@@ -73,7 +75,7 @@ const Navbar = () => {
               }}
             >
               {project.name}
-            </Link>
+            </a>
           ))}
         </div>
       )}
@@ -90,11 +92,13 @@ const Navbar = () => {
             className="w-[100px] h-auto"
           />
         </Link>
+
         <HiMenuAlt3
           onClick={handleNavToggle}
           className="z-20 text-white font-bold cursor-pointer lg:hidden"
           size={35}
         />
+
         <ul className="hidden lg:flex space-x-8 mr-4 lg:mr-24">
           <li className="font-bold dancing-script-fine text-2xl text-white">
             <Link to="/Contact" className="hover:text-amber-500">
@@ -106,6 +110,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
+
       {navOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95">
           <ul className="flex flex-col space-y-4">
