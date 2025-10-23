@@ -81,8 +81,9 @@ export default function Home() {
               transition={{ duration: 0.9, delay: 0.3 }}
               className='mt-2 text-white font-semibold'
             >
-              I’m passionate about building scalable and reliable systems that power complex applications behind the scenes. As a dedicated backend engineer,
-              I specialize in designing and implementing robust architectures, optimizing performance, and ensuring secure, maintainable codebases.
+              I’m passionate about building scalable and reliable systems that bring ideas to life from front to back. As a dedicated full-stack engineer, 
+              I specialize in designing and implementing end-to-end solutions, from crafting intuitive, responsive user interfaces to architecting efficient, 
+              secure backend services. I focus on performance, maintainability, and delivering seamless user experiences powered by solid engineering foundations.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
