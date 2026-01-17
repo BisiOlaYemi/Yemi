@@ -64,7 +64,7 @@ export default function Home() {
           />
         ))}
 
-        <div className="flex flex-col md:flex-row md:h-screen mt-24 max-w-7xl mx-auto px-8">
+        <div className="flex flex-col md:flex-row md:h-screen mt-24 lg:mt-64 max-w-7xl mx-auto px-8">
           <div className="md:w-1/2 p-5 md:p-10 mt-5">
             <motion.p
               initial={{ opacity: 0, y: -50 }}
