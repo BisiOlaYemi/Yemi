@@ -1,116 +1,128 @@
-import { motion } from 'framer-motion';
-import devyemi from '../assets/devyemi.png';
+import { Link } from 'react-router-dom';
 import aypLogo from '../assets/ayp.svg';
 import lewkLogo from '../assets/Lewk.png';
 import seemlessLogo from '../assets/seemless.png';
 import placioLogo from '../assets/placio.svg';
 import bountipLogo from '../assets/bountipLogo.svg';
 import readycarLogo from '../assets/readycars.png';
-import { Link } from 'react-router-dom';
 
-const logos = [
-  { src: aypLogo, alt: 'AYP Logo' },
-  { src: bountipLogo, alt: 'Bountip Logo' },
-  { src: lewkLogo, alt: 'Lewk Logo' },
-  { src: placioLogo, alt: 'Placio Logo' },
-  { src: readycarLogo, alt: 'Readycars Logo' },
-  { src: seemlessLogo, alt: 'Seemless Logo' },
+const companies = [
+  { src: aypLogo, alt: 'AYP' },
+  { src: bountipLogo, alt: 'Bountip' },
+  { src: lewkLogo, alt: 'Lewk' },
+  { src: placioLogo, alt: 'Placio' },
+  { src: readycarLogo, alt: 'ReadyCars' },
+  { src: seemlessLogo, alt: 'SeamlessHR' },
 ];
+
+const capabilities = [
+  {
+    number: '01',
+    title: 'Product-minded frontend',
+    description: 'Responsive interfaces that feel clear, fast, and natural to use.',
+    tools: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+  },
+  {
+    number: '02',
+    title: 'Reliable backend systems',
+    description: 'Thoughtful APIs and data models built to support real workflows.',
+    tools: ['Python', 'FastAPI', 'Node.js', 'NestJS', 'PostgreSQL', 'MongoDB'],
+  },
+  {
+    number: '03',
+    title: 'From build to launch',
+    description: 'Practical cloud and delivery experience to take products beyond the demo.',
+    tools: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'MongoDB'],
+  },
+];
+
+const highlights = [
+  { value: '8+', label: 'years building software' },
+  { value: '30+', label: 'cross-functional teams' },
+  { value: 'End to end', label: 'from idea to deployment' },
+];
+
+function CompanyRail() {
+  return (
+    <div className="company-rail" aria-label="Companies Yemi has worked with">
+      <div className="company-rail__track">
+        {[...companies, ...companies].map((company, index) => (
+          <div
+            className="company-rail__item"
+            key={`${company.alt}-${index}`}
+            aria-hidden={index >= companies.length}
+          >
+            <img src={company.src} alt={index < companies.length ? company.alt : ''} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function DeveloperProfile() {
   return (
-    <div className="min-h-screen text-white">
-      <h1 className="text-white text-xl roboto-regular text-center justify-center">Companies I have played roles as SE:</h1>
-      <header className="container mx-auto py-6 overflow-hidden">
-        <motion.div
-          className="flex items-center space-x-12"
-          initial={{ x: 0 }}
-          animate={{ x: ['10%', '-100%'] }} 
-          transition={{
-            repeat: Infinity, 
-            duration: 30, 
-            ease: 'linear', 
-          }}
-        >
-          {logos.map((logo, index) => (
-            <motion.div
-              key={index}
-              className="flex-shrink-0"
-              style={{ width: '200px' }} 
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="w-80 h-auto object-contain"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-      </header>
-
-      <main className="container mx-auto mt-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h1 className="text-4xl font-bold text-white dancing-script-fine">Software Engineer</h1>
-              <p className="text-gray-300 roboto-regular mt-2">
-                Crafting elegant solutions to complex problems
-              </p>
-            </motion.div>
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-purple-500 rounded-tl-full rounded-br-full -rotate-6"></div>
-              <img
-                src={devyemi}
-                alt="Software Developer"
-                className="relative z-10 rounded-full shadow-2xl w-[300px] h-[300px] object-cover"
-              />
-            </motion.div>
-          </div>
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <p className="text-gray-300 roboto-regular">
-              Experienced in developing scalable and efficient applications using advanced technologies.
+    <section className="developer-profile" aria-labelledby="developer-profile-title">
+      <div className="developer-profile__inner">
+        <div className="developer-profile__intro">
+          <div>
+            <p className="developer-profile__eyebrow">A little about how I work</p>
+            <h2 id="developer-profile-title">
+              Thoughtful engineering.
+              <span> Real-world outcomes.</span>
+            </h2>
+            <p className="developer-profile__summary">
+              I work across the product stack, connecting the details people see
+              with the systems that make everything work. I enjoy collaborating
+              with teams, solving the tricky parts, and shipping software that
+              makes a difference.
             </p>
-            <div className="space-y-4">
-              <h2 className="text-2xl roboto-black">Tech Stacks</h2>
-              <ul className="list-disc list-inside text-gray-300 roboto-regular">
-                <li>JavaScript / TypeScript</li>
-                <li>React / Next.js</li>
-                <li>Node.js / Nest | Express</li>
-                <li>Python / FastApi | Django</li>
-                <li>SQL / Postgresql / MongoDB Databases</li>
-                <li>Docker / K8S</li>
-                <li>AWS | GCP | Azure</li>
-              </ul>
-            </div>
-            <div className="space-y-2 text-gray-300 roboto-regular">
-              <p><span className="font-bold">Experience:</span> 8 years</p>
-              <p><span className="font-bold">Location:</span> Lisbon, Portugal</p>
-              <p><span className="font-bold">Availability:</span> Remote | Hybrid</p>
-            </div>
-            <Link to="/Contact">
-            <button
-              className="bg-amber-800 text-white px-8 py-3 rounded-full roboto-bold text-lg hover:bg-gray-700 hover:scale-105 transition-all duration-300"
-            >
-              Hire me
-            </button>
-          </Link>
-          </motion.div>
+          </div>
+          <div className="developer-profile__highlights">
+            {highlights.map((highlight) => (
+              <div className="developer-profile__highlight" key={highlight.label}>
+                <strong>{highlight.value}</strong>
+                <span>{highlight.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+
+        <div className="capability-grid">
+          {capabilities.map((capability) => (
+            <article
+              className="capability-card"
+              key={capability.number}
+            >
+              <span className="capability-card__number">{capability.number}</span>
+              <h3>{capability.title}</h3>
+              <p>{capability.description}</p>
+              <ul aria-label={`${capability.title} technologies`}>
+                {capability.tools.map((tool) => <li key={tool}>{tool}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="developer-profile__companies">
+          <div className="developer-profile__companies-heading">
+            <span>Collaboration is at the heart of good software</span>
+            <p>Teams and products I&apos;ve had the chance to work with</p>
+          </div>
+          <CompanyRail />
+        </div>
+
+        <div className="developer-profile__cta">
+          <div>
+            <span>Have a good problem to solve?</span>
+            <p>Let&apos;s turn it into something people can use.</p>
+          </div>
+          <div className="developer-profile__cta-actions">
+            <Link to="/Contact">Start a conversation <span aria-hidden="true">-&gt;</span></Link>
+            <Link to="/projects" className="developer-profile__projects-link">Explore projects</Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

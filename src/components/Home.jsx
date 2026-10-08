@@ -1,123 +1,108 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import MainLayout from '../components/Layouts/MainLayouts'
-import devyemi from '../assets/devyemi.png'
-import { motion } from 'framer-motion'
-import 'tailwindcss/tailwind.css'
-import DeveloperProfile from './DeveloperProfile'
-import WorkExperienceTimeline from './WorkExperienceTimeline'
-// import AiChat from './AiChat'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import 'tailwindcss/tailwind.css';
+import devyemi from '../assets/devyemi.png';
+import MainLayout from './Layouts/MainLayouts';
+import DeveloperProfile from './DeveloperProfile';
+import WorkExperienceTimeline from './WorkExperienceTimeline';
 
-const MovingObject = ({ delay, type }) => {
-  const variants = {
-    capsule: {
-      width: '60px',
-      height: '20px',
-      borderRadius: '10px',
-      background: 'linear-gradient(to right, rgba(74, 14, 78, 0.3), rgba(129, 20, 154, 0.3))',
-    },
-    circle: {
-      width: '40px',
-      height: '40px',
-      borderRadius: '50%',
-      background: 'rgba(255, 191, 0, 0.3)',
-    },
-    square: {
-      width: '30px',
-      height: '30px',
-      background: 'rgba(0, 128, 128, 0.3)',
-    }
-  }
+const outerOrbitSkills = [
+  { name: 'AWS', x: 50, y: 8 },
+  { name: 'Docker', x: 80, y: 20 },
+  { name: 'React', x: 90, y: 50 },
+  { name: 'TypeScript', x: 80, y: 80 },
+  { name: 'Node.js', x: 50, y: 92 },
+  { name: 'PostgreSQL', x: 20, y: 80 },
+  { name: 'Python', x: 10, y: 50 },
+  { name: 'Next.js', x: 20, y: 20 },
+];
 
+const innerOrbitSkills = [
+  { name: 'NestJS', x: 65, y: 14 },
+  { name: 'MongoDB', x: 86, y: 65 },
+  { name: 'FastAPI', x: 35, y: 86 },
+  { name: 'GCP', x: 14, y: 35 },
+];
+
+function TechOrbit({ skills, className }) {
   return (
-    <motion.div
-      className="absolute z-0"
-      animate={{
-        x: ['0%', '100%', '0%'],
-        y: ['0%', '100%', '0%'],
-      }}
-      transition={{
-        repeat: Number.MAX_SAFE_INTEGER,
-        repeatType: 'reverse',
-        duration: 20 + delay,
-        delay: delay,
-        ease: 'linear',
-      }}
-      style={{
-        ...variants[type],
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-      }}
-    />
-  )
+    <div className={`tech-orbit ${className}`} aria-label="Technology stack">
+      <div className="tech-orbit__track" aria-hidden="true" />
+      <div className="tech-orbit__rotation">
+        {skills.map((skill) => (
+          <span
+            className="tech-orbit__position"
+            key={skill.name}
+            style={{ left: `${skill.x}%`, top: `${skill.y}%` }}
+          >
+            <span className="tech-orbit__label">{skill.name}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default function Home() {
   return (
     <MainLayout>
-      <div className="relative min-h-screen overflow-hidden">
-        {[...Array(10)].map((_, index) => (
-          <MovingObject 
-            key={index} 
-            delay={index * 2} 
-            type={['capsule', 'circle', 'square'][index % 3]} 
-          />
-        ))}
+      <main>
+        <section className="profile-hero">
+          <div className="profile-hero__content">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="profile-hero__eyebrow">
+                <span aria-hidden="true" />
+                Senior Software engineer
+              </p>
+              <h1 className="profile-hero__title">Yemi Ogunrinde</h1>
+              <p className="profile-hero__subtitle">
+                I build thoughtful, reliable software from idea to launch.
+              </p>
+              <p className="profile-hero__description">
+                I partner with teams to turn complex problems into useful products,
+                bringing together polished user experiences, dependable backend
+                systems, and cloud infrastructure.
+              </p>
+              <div className="profile-hero__actions">
+                <Link className="profile-hero__button profile-hero__button--primary" to="/Contact">
+                  Let&apos;s work together <span aria-hidden="true">-&gt;</span>
+                </Link>
+                <a
+                  className="profile-hero__button profile-hero__button--secondary"
+                  href="https://github.com/BisiOlaYemi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </motion.div>
+          </div>
 
-        <div className="flex flex-col md:flex-row md:h-screen mt-24 lg:mt-64 max-w-7xl mx-auto px-8">
-          <div className="md:w-1/2 p-5 md:p-10 mt-5">
-            <motion.p
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9 }}
-              className="text-[2.5rem] text-white text-center md:text-left lg:text-[3.5rem] font-bold tracking-wide text-headingColor md:w-[85%] md:leading-tight"
-            >
-              <span className="bg-gradient-to-r from-purple-500 to-amber-500 text-transparent bg-clip-text text-[2rem] lg:text-[4rem]">Let's Build</span>{' '}
-              Together
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.3 }}
-              className='mt-2 text-white font-semibold'
-            >
-              I’m passionate about building scalable and reliable systems that bring ideas to life from front to back. As a dedicated full-stack engineer, 
-              I specialize in designing and implementing end-to-end solutions, from crafting intuitive, responsive user interfaces to architecting efficient, 
-              secure backend services. I focus on performance, maintainability, and delivering seamless user experiences powered by solid engineering foundations.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <Link to="/Contact">
-                <button className="bg-gradient-to-br from-amber-500 to-purple-500 text-white md:px-7 px-4 py-2 text-lg rounded-lg hover:bg-gray-800 hover:scale-105 transition-all duration-300 mt-12">
-                  Get in touch
-                </button>
-              </Link>
-            </motion.div>
-          </div>
-          <div className="md:w-1/2">
-            <motion.div
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9 }}
-              className="p-4 relative"
-            >
-              
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-purple-500 rounded-full transform -translate-x-4 -translate-y-4" />
-              <img
-                src={devyemi}
-                alt='about' 
-                className="w-full h-auto object-cover rounded-5xl shadow-xl relative z-10"
-              />
-            </motion.div>
-          </div>
-        </div>
+          <motion.div
+            className="profile-hero__visual"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+          >
+            <div className="profile-orbit" role="img" aria-label="Yemi's profile surrounded by technology stacks">
+              <TechOrbit skills={outerOrbitSkills} className="tech-orbit--outer" />
+              <TechOrbit skills={innerOrbitSkills} className="tech-orbit--inner" />
+              <div className="profile-orbit__portrait">
+                <img src={devyemi} alt="Yemi Ogunrinde" />
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         <DeveloperProfile />
         <WorkExperienceTimeline />
-        {/* <AiChat /> */}
-      </div>
+      </main>
     </MainLayout>
-  )
+  );
 }

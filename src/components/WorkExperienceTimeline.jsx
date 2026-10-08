@@ -2,9 +2,21 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
+    title: 'Senior AI Engineer',
+    company: 'Celfocus',
+    period: 'Oct 2025 - Present',
+    description: 'Building AI-powered solutions as a Senior AI Engineer.'
+  },
+  {
+    title: 'AI Full Stack Engineer',
+    company: 'Nobroker Real Tech',
+    period: 'Aug 2025 - Oct 2025',
+    description: 'Developed full-stack solutions with a focus on AI-powered applications.'
+  },
+  {
     title: 'Backend Developer',
     company: 'Protonlabs Tech',
-    period: '2024 - Ongoing',
+    period: '2024 - 2025',
     description: 'Collaborating with cross-functional teams to enhance backend functionalities, and contributing to the continuous improvement.'
   },
   {

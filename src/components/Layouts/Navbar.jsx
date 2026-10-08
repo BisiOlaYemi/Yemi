@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import projects from '../../data/projects';
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -14,41 +15,6 @@ const Navbar = () => {
       return next;
     });
   };
-
-  const projects = [
-    {
-      name: "AskyourPdf",
-      url: "https://askyourpdf.com/"
-    },
-    {
-      name: "Bountip ",
-      url: "https://www.bountip.com/"
-    },
-    {
-      name: "Lewk",
-      url: "https://lewkclothing.ca/"
-    },
-    {
-      name: "ReadyCars",
-      url: "https://readycars.ng"
-    },
-    {
-      name: "SeamLess HR",
-      url: "https://seamlesshr.com/"
-    },
-    { 
-      name: "FinPay Fintech", 
-      url: "https://github.com/BisiOlaYemi/finpay" 
-    },
-    { 
-      name: "Video to ppt/pdf",
-      url: "https://github.com/BisiOlaYemi/convertvideo2pdfppt" 
-    },
-    { 
-      name: "Web Scrapper",
-      url: "https://github.com/BisiOlaYemi/webscap" 
-    },
-  ];
 
   const getScreenshotUrl = (url) => `https://s.wordpress.com/mshots/v1/${encodeURIComponent(
     url

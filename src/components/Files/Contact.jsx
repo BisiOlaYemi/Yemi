@@ -1,148 +1,189 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
+import { BsTwitterX } from 'react-icons/bs';
 import yemi from '../../assets/yemi.png';
-import Footer from '../Layouts/Footer';
+import MainLayout from '../Layouts/MainLayouts';
+
+const initialFormData = {
+  user_name: '',
+  user_email: '',
+  message: '',
+};
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    user_name: "",
-    user_email: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState(initialFormData);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (event) => {
+    setFormData((current) => ({
+      ...current,
+      [event.target.name]: event.target.value,
+    }));
+    setSuccess(false);
+    setError('');
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Basic client-side validation
-    if (!formData.user_name.trim() || !formData.user_email.trim() || !formData.message.trim()) {
-      alert('Please fill in all fields before submitting.');
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.user_email)) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setSubmitting(true);
+    setSuccess(false);
+    setError('');
 
-    fetch("https://getform.io/f/cfa37ff6-ad1b-4704-bc7b-03ddb734a155", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        setSubmitting(false);
-        if (response.ok) {
-          setSuccess(true);
-          setFormData({ user_name: '', user_email: '', message: '' });
-        } else {
-          alert("Form submission failed. Please try again later.");
-        }
-      })
-      .catch((error) => {
-        setSubmitting(false);
-        console.log("Error occurred while submitting the form:", error);
-        alert("An error occurred while submitting the form. Please try again later.");
+    try {
+      const response = await fetch('https://getform.io/f/cfa37ff6-ad1b-4704-bc7b-03ddb734a155', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (!response.ok) {
+        throw new Error('Message submission failed. Please try again, or email me directly.');
+      }
+
+      setSuccess(true);
+      setFormData(initialFormData);
+    } catch (submissionError) {
+      setError(submissionError.message || 'Something went wrong. Please try again, or email me directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
-    <div className="bg-gray-950 min-h-screen text-white flex flex-col">
-      <main className="flex-1">
-        <div className="container mx-auto max-w-7xl px-8 py-12">
-          <div className="mb-6">
-            <Link to="/" className="inline-block bg-gray-800 px-3 py-2 rounded-md hover:bg-gray-700">&larr; Back</Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <div className="p-4">
-            <img
-              src={yemi}
-              alt="Yemi"
-              className="w-full h-auto lg:mt-4 rounded-xl hover:scale-105 transition-all duration-300"
-            />
-            <p className="mt-4 text-gray-300">Prefer emailing directly? <a href="mailto:ogunrinde_olayemi@yahoo.com" className="text-orange-400 underline">ogunrinde_olayemi@yahoo.com</a></p>
-          </div>
+    <MainLayout>
+      <main className="contact-page">
+        <div className="contact-page__inner">
+          <Link to="/" className="contact-page__back">
+            <span aria-hidden="true">←</span> Back to profile
+          </Link>
 
-          <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4">Get in touch</h2>
-            {success && (
-              <div className="mb-4 p-3 bg-emerald-900 rounded text-emerald-200">Thank you — your message was sent.</div>
-            )}
+          <header className="contact-page__heading">
+            <p className="contact-page__eyebrow">Get in touch</p>
+            <h1>Let&apos;s make something <span>meaningful.</span></h1>
+            <p>
+              Have a project, an opportunity, or just a good idea? Tell me a little
+              about it and I&apos;ll get back to you.
+            </p>
+          </header>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <div>
-                <label htmlFor="user_name" className="block mb-2 font-medium text-white">Name</label>
-                <input
-                  type="text"
-                  id="user_name"
-                  name="user_name"
-                  placeholder="Your full name"
-                  value={formData.user_name}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-2 mb-1 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
-                  required
-                />
+          <div className="contact-layout">
+            <aside className="contact-card">
+              <div className="contact-card__portrait">
+                <img src={yemi} alt="Yemi Ogunrinde" />
+                <span className="contact-card__availability">
+                  <span aria-hidden="true" /> Open to conversations
+                </span>
               </div>
 
-              <div>
-                <label htmlFor="user_email" className="block mb-2 font-medium text-white">Email</label>
-                <input
-                  type="email"
-                  id="user_email"
-                  name="user_email"
-                  placeholder="you@anything.com"
-                  value={formData.user_email}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-2 mb-1 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
-                  required
-                />
+              <div className="contact-card__body">
+                <p className="contact-card__eyebrow">Your point of contact</p>
+                <h2>Yemi Ogunrinde</h2>
+                <p className="contact-card__role">Senior Software Engineer</p>
+
+                <div className="contact-card__details">
+                  <a href="mailto:ogunrinde_olayemi@yahoo.com">
+                    <FaEnvelope aria-hidden="true" />
+                    <span>ogunrinde_olayemi@yahoo.com</span>
+                  </a>
+                  <div>
+                    <FaMapMarkerAlt aria-hidden="true" />
+                    <span>Lisbon, Portugal · Remote-friendly</span>
+                  </div>
+                </div>
+
+                <div className="contact-card__socials" aria-label="Social profiles">
+                  <a href="https://www.linkedin.com/in/yemiogunrinde/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <FaLinkedin aria-hidden="true" />
+                  </a>
+                  <a href="https://github.com/BisiOlaYemi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <FaGithub aria-hidden="true" />
+                  </a>
+                  <a href="https://x.com/yemioogunrinde" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <BsTwitterX aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+            </aside>
+
+            <section className="contact-form-card" aria-labelledby="contact-form-title">
+              <div className="contact-form-card__heading">
+                <p className="contact-card__eyebrow">Send a message</p>
+                <h2 id="contact-form-title">Tell me what you&apos;re thinking</h2>
+                <p>Share a few details and I&apos;ll be in touch soon.</p>
               </div>
 
-              <div>
-                <label htmlFor="message" className="block mb-2 font-medium text-white">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={8}
-                  placeholder="Tell me about your project or question"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-2 mb-1 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400"
-                  required
-                />
-              </div>
+              {success && (
+                <p className="contact-form__feedback contact-form__feedback--success" role="status">
+                  Thanks for reaching out. Your message has been sent.
+                </p>
+              )}
+              {error && (
+                <p className="contact-form__feedback contact-form__feedback--error" role="alert">
+                  {error}
+                </p>
+              )}
 
-              <div>
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className={`px-4 py-2 text-white bg-orange-500 font-semibold rounded-md hover:brightness-90 transition-all ${submitting ? 'opacity-60 cursor-not-allowed' : ''}`}
-                >
-                  {submitting ? 'Sending...' : 'Send Message'}
-                </button>
-              </div>
-            </form>
+              <form onSubmit={handleSubmit} className="contact-form">
+                <div className="contact-form__row">
+                  <div className="contact-form__field">
+                    <label htmlFor="user_name">Your name</label>
+                    <input
+                      type="text"
+                      id="user_name"
+                      name="user_name"
+                      placeholder="Jane Smith"
+                      value={formData.user_name}
+                      onChange={handleChange}
+                      autoComplete="name"
+                      required
+                    />
+                  </div>
+                  <div className="contact-form__field">
+                    <label htmlFor="user_email">Email address</label>
+                    <input
+                      type="email"
+                      id="user_email"
+                      name="user_email"
+                      placeholder="jane@company.com"
+                      value={formData.user_email}
+                      onChange={handleChange}
+                      autoComplete="email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="contact-form__field">
+                  <label htmlFor="message">Your message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={6}
+                    placeholder="A little context about your project or idea..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="contact-form__submit-row">
+                  <p>I usually reply within a couple of working days.</p>
+                  <button type="submit" disabled={submitting}>
+                    {submitting ? 'Sending…' : 'Send message'}
+                    {!submitting && <span aria-hidden="true">↗</span>}
+                  </button>
+                </div>
+              </form>
+            </section>
           </div>
         </div>
-      </div>
-
       </main>
-
-      <Footer />
-    </div>
+    </MainLayout>
   );
 };
 
