@@ -57,7 +57,7 @@ export default function Home() {
             >
               <p className="profile-hero__eyebrow">
                 <span aria-hidden="true" />
-                Senior Software engineer
+                Senior Software Engineer
               </p>
               <h1 className="profile-hero__title">Yemi Ogunrinde</h1>
               <p className="profile-hero__subtitle">

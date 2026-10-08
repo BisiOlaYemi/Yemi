@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     title: 'Senior AI Engineer',
-    company: 'Celfocus',
+    company: 'Conclusion',
     period: 'Oct 2025 - Present',
     description: 'Building AI-powered solutions as a Senior AI Engineer.'
   },
