@@ -104,7 +104,7 @@ export default function AiChat() {
               <span className="profile-chat__avatar" aria-hidden="true">Y</span>
               <div>
                 <h2>Ask about Yemi</h2>
-                <p>Ollama-powered profile assistant</p>
+                <p>AI-powered profile assistant</p>
               </div>
             </div>
             <button
@@ -169,7 +169,7 @@ export default function AiChat() {
               <HiPaperAirplane size={18} aria-hidden="true" />
             </button>
           </form>
-          <p className="profile-chat__privacy">Your message is sent to this site&apos;s Ollama server for a reply.</p>
+          {/* <p className="profile-chat__privacy">Your message is sent to this site&apos;s Ollama server for a reply.</p> */}
         </section>
       )}
     </div>
