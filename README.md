@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Yemi Ogunrinde — portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React portfolio with an AI assistant that answers questions about Yemi's engineering experience, projects, and technologies.
 
-## Available Scripts
+## Deploy on Vercel with Ollama Cloud
 
-In the project directory, you can run:
+The `/api/chat` Vercel Function calls Ollama Cloud directly. Production does **not** need a locally running Ollama server. Create an Ollama API key in [Ollama API key settings](https://ollama.com/settings/keys), then add these variables in **Vercel → Project → Settings → Environment Variables**:
 
-### `npm start`
+| Variable | Value |
+| --- | --- |
+| `OLLAMA_URL` | `https://ollama.com` |
+| `OLLAMA_MODEL` | `gemma4:31b` (or a cloud model enabled for your Ollama account) |
+| `OLLAMA_API_KEY` | Your Ollama API key |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Add the variables to the environments you deploy (Production and, if desired, Preview), then redeploy so the function receives them. Keep `OLLAMA_API_KEY` server-side: do not add it as a `REACT_APP_` variable, put it in browser code, or commit it. Vercel loads the `api/chat.js` function and serves the React build; `vercel.json` sends client-side routes to the app.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Ollama's local models run for free on your own hardware. Ollama Cloud does not require a local installation, but its free plan has limited monthly usage credits for a subset of models and allows one concurrent request; it is not unlimited hosting. Check your [Ollama usage and model access](https://ollama.com/settings/usage) if a request is rejected or rate-limited.
 
-### `npm test`
+## Run locally
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install [Ollama](https://ollama.com/download) and download a local model:
 
-### `npm run build`
+```sh
+ollama pull llama3.2
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Copy `.env.example` to `.env` and replace the cloud settings with the local Ollama settings:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```dotenv
+OLLAMA_URL=http://127.0.0.1:11434
+OLLAMA_MODEL=llama3.2
+OLLAMA_API_KEY=
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`OLLAMA_API_KEY` is not needed for the local Ollama API. Alternatively, keep the cloud URL and add your API key to use Ollama Cloud while developing.
 
-### `npm run eject`
+Run the API and frontend in separate terminals:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+npm run server
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Open [http://localhost:3000](http://localhost:3000). The React development server proxies chat requests to the API on port 3001. If `npm run server` says that port 3001 is already in use, the API may already be running; check it with `curl http://localhost:3001/api/health` instead of starting another copy. The optional `.env` file is loaded by the local API server and is ignored by Git.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Other scripts
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `npm run build` — build the React frontend.
+- `npm test` — run the React test suite.

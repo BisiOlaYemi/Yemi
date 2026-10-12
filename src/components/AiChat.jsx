@@ -1,139 +1,176 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { HiPaperAirplane, HiXMark } from 'react-icons/hi2';
-import { IoChatbubbleEllipses } from "react-icons/io5";
-import predefinedResponses from './models/training';
+import { IoChatbubbleEllipses } from 'react-icons/io5';
 
-const LoadingSpinner = () => (
-  <motion.div
-    className="flex justify-center items-center p-4"
-    animate={{ rotate: 360 }}
-    transition={{ repeat: Infinity, duration: 1 }}
-  >
-    <div className="rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-500"></div>
-  </motion.div>
-);
+const openingMessage = {
+  role: 'assistant',
+  content:
+    "Hi, I'm Yemi's AI assistant. Ask me about Yemi's engineering experience, projects, or technologies.",
+};
 
-export default function Component() {
+const suggestedQuestions = [
+  'What does Yemi build?',
+  'Tell me about Yemi’s experience',
+  'What technologies does Yemi use?',
+];
+
+export default function AiChat() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { text: "Hello! I'm assistant, Yemi's AI assistant. ask me only questions that I am trained on?", isAi: true }
-  ]);
-  const [inputMessage, setInputMessage] = useState('');
-  const [userName, setUserName] = useState(''); 
-  const [awaitingName, setAwaitingName] = useState(false); 
+  const [messages, setMessages] = useState([openingMessage]);
+  const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const messageListRef = useRef(null);
+  const inputRef = useRef(null);
 
+  useEffect(() => {
+    if (messageListRef.current) {
+      messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+    }
+  }, [messages, isLoading]);
 
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (inputMessage.trim() === '') return;
+  useEffect(() => {
+    if (isOpen) inputRef.current?.focus();
+  }, [isOpen]);
 
-    setMessages([...messages, { text: inputMessage, isAi: false }]);
-    const userMessage = inputMessage.toLowerCase();
-    setInputMessage('');
+  const sendMessage = async (event, messageText = input, isRetry = false) => {
+    event?.preventDefault();
+    const content = messageText.trim();
+    if (!content || isLoading) return;
 
-    if (awaitingName) {
-      setUserName(inputMessage);
-      setAwaitingName(false);
-      setMessages(prev => [...prev, { text: `Welcome, ${inputMessage}! How can I assist you today?`, isAi: true }]);
-    } else if (userMessage.includes("hi") || userMessage.includes("hello") || userMessage.includes("hey")) {
-      setMessages(prev => [...prev, { text: "Hello! May I know your name?", isAi: true }]);
-      setAwaitingName(true);
-    } else {
-      setIsLoading(true);  
+    const history = messages.filter((message) => !message.error);
+    if (isRetry) history.pop();
+    const conversation = [...history, {
+      role: 'user',
+      content,
+    }];
+    setMessages(conversation);
+    setInput('');
+    setIsLoading(true);
 
-      const response = predefinedResponses[userMessage];
-      
-      // Simulate typing effect
-      setTimeout(() => {
-        setIsLoading(false);  
-        if (response) {
-          typeOutResponse(response);
-        } else {
-          typeOutResponse(".I'm not sure I was trained to respond to this prompt or you miss the right prompt? make sure there is no single quote in your prompt and consider including question (?) mark at the end of your question. Please contact Yemi via email for more details.");
-        }
-      }, 1000); 
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: conversation.slice(-12).map(({ role, content: text }) => ({
+          role,
+          content: text,
+        })) }),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'The assistant could not answer right now.');
+      }
+
+      setMessages((current) => [...current, { role: 'assistant', content: result.reply }]);
+    } catch (error) {
+      setMessages((current) => [
+        ...current,
+        {
+          role: 'assistant',
+          content: error.message || 'Could not connect to the assistant. Please try again.',
+          error: true,
+        },
+      ]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const typeOutResponse = (response) => {
-    let index = 0;
-    const typingSpeed = 50; 
-
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { text: '', isAi: true } 
-    ]);
-
-    const intervalId = setInterval(() => {
-      setMessages(prevMessages => {
-        const updatedMessages = [...prevMessages];
-        const lastMessageIndex = updatedMessages.length - 1;
-
-        if (index < response.length) {
-          updatedMessages[lastMessageIndex].text += response[index]; 
-        }
-
-        return updatedMessages;
-      });
-
-      index++;
-
-      if (index >= response.length) {
-        clearInterval(intervalId);
-      }
-    }, typingSpeed);
+  const retryLastMessage = () => {
+    const lastUserMessage = [...messages].reverse().find((message) => message.role === 'user');
+    if (lastUserMessage) sendMessage(null, lastUserMessage.content, true);
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="profile-chat">
       {!isOpen && (
         <button
+          type="button"
+          className="profile-chat__launcher"
           onClick={() => setIsOpen(true)}
-          className="bg-gradient-to-br from-purple-500 to-amber-500 text-white rounded-full p-4 shadow-lg hover:bg-gray-700 transition-colors"
+          aria-label="Ask Yemi's AI assistant"
+          aria-expanded={false}
         >
-          <IoChatbubbleEllipses size={24} />
+          <IoChatbubbleEllipses size={22} aria-hidden="true" />
+          <span>Ask about Yemi</span>
         </button>
       )}
 
       {isOpen && (
-        <div className="bg-teal-50 rounded-lg shadow-xl w-80 max-h-[500px] flex flex-col">
-          <div className="flex justify-between items-center p-4 border-b">
-            <h2 className="text-lg font-semibold text-gray-700">Chat Assistant</h2>
-            <button onClick={() => setIsOpen(false)} className="text-gray-800 font-semibold hover:text-gray-800">
-              <HiXMark size={20} />
+        <section className="profile-chat__panel" aria-label="Chat with Yemi's AI assistant">
+          <header className="profile-chat__header">
+            <div className="profile-chat__identity">
+              <span className="profile-chat__avatar" aria-hidden="true">Y</span>
+              <div>
+                <h2>Ask about Yemi</h2>
+                <p>Ollama-powered profile assistant</p>
+              </div>
+            </div>
+            <button
+              type="button"
+              className="profile-chat__close"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close chat"
+            >
+              <HiXMark size={20} aria-hidden="true" />
             </button>
-          </div>
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          </header>
+
+          <div className="profile-chat__messages" ref={messageListRef} aria-live="polite">
             {messages.map((message, index) => (
               <div
-                key={index}
-                className={`${
-                  message.isAi ? 'bg-gray-800 text-base text-white roboto-regular font-semibold' : 'bg-purple-950 text-white text-base font-semibold roboto-regular'
-                } p-2 rounded-lg max-w-[80%] ${message.isAi ? 'mr-auto' : 'ml-auto'}`}
+                className={`profile-chat__message profile-chat__message--${message.role}${message.error ? ' profile-chat__message--error' : ''}`}
+                key={`${index}-${message.role}`}
               >
-                {message.text}
+                {message.content}
+                {message.error && (
+                  <button type="button" className="profile-chat__retry" onClick={retryLastMessage}>
+                    Try again
+                  </button>
+                )}
               </div>
             ))}
-            {isLoading && <LoadingSpinner />}
+
+            {messages.length === 1 && (
+              <div className="profile-chat__suggestions" aria-label="Suggested questions">
+                {suggestedQuestions.map((question) => (
+                  <button
+                    type="button"
+                    key={question}
+                    onClick={() => sendMessage(null, question)}
+                    disabled={isLoading}
+                  >
+                    {question}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {isLoading && (
+              <div className="profile-chat__typing" role="status">
+                <span /><span /><span /><span className="sr-only">Yemi's assistant is thinking</span>
+              </div>
+            )}
           </div>
-          <form onSubmit={handleSendMessage} className="border-t p-4 flex">
+
+          <form className="profile-chat__form" onSubmit={sendMessage}>
+            <label className="sr-only" htmlFor="profile-chat-input">Your message</label>
             <input
-              type="text"
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              placeholder="Type your message..."
-              className="flex-1 border rounded-l-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              id="profile-chat-input"
+              ref={inputRef}
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+              placeholder="Ask about experience, projects..."
+              maxLength={2000}
+              disabled={isLoading}
             />
-            <button
-              type="submit"
-              className="bg-gradient-to-br from-purple-500 to-amber-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition-colors"
-            >
-              <HiPaperAirplane size={20} />
+            <button type="submit" aria-label="Send message" disabled={!input.trim() || isLoading}>
+              <HiPaperAirplane size={18} aria-hidden="true" />
             </button>
           </form>
-        </div>
+          <p className="profile-chat__privacy">Your message is sent to this site&apos;s Ollama server for a reply.</p>
+        </section>
       )}
     </div>
   );

@@ -6,6 +6,7 @@ import devyemi from '../assets/devyemi.png';
 import MainLayout from './Layouts/MainLayouts';
 import DeveloperProfile from './DeveloperProfile';
 import WorkExperienceTimeline from './WorkExperienceTimeline';
+import AiChat from './AiChat';
 
 const outerOrbitSkills = [
   { name: 'AWS', x: 50, y: 8 },
@@ -102,6 +103,7 @@ export default function Home() {
 
         <DeveloperProfile />
         <WorkExperienceTimeline />
+        <AiChat />
       </main>
     </MainLayout>
   );
