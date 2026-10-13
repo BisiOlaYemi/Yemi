@@ -2,6 +2,8 @@
 
 React portfolio with an AI assistant that answers questions about Yemi's engineering experience, projects, and technologies.
 
+The assistant streams generated text into the chat as Ollama produces it, rather than waiting for the full answer.
+
 ## Deploy on Vercel with Ollama Cloud
 
 The `/api/chat` Vercel Function calls Ollama Cloud directly. Production does **not** need a locally running Ollama server. Create an Ollama API key in [Ollama API key settings](https://ollama.com/settings/keys), then add these variables in **Vercel → Project → Settings → Environment Variables**:

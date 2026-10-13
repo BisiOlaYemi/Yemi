@@ -5,7 +5,7 @@ const path = require('node:path');
 const envFile = path.join(__dirname, '.env');
 if (fs.existsSync(envFile)) process.loadEnvFile(envFile);
 
-const { generateReply, validateMessages } = require('./lib/ollama');
+const { streamReply, validateMessages } = require('./lib/ollama');
 
 const port = Number(process.env.PORT || 3001);
 const ollamaUrl = (process.env.OLLAMA_URL || 'http://127.0.0.1:11434').replace(/\/+$/, '');
@@ -55,10 +55,32 @@ async function handleChat(request, response) {
       return;
     }
 
-    const reply = await generateReply(messages, { ollamaUrl, model, apiKey });
-    sendJson(response, 200, { reply });
+    let streaming = false;
+    const writeEvent = (event) => {
+      if (!streaming) {
+        response.writeHead(200, {
+          'Content-Type': 'text/event-stream; charset=utf-8',
+          'Cache-Control': 'no-cache, no-transform',
+          'X-Accel-Buffering': 'no',
+        });
+        streaming = true;
+      }
+      response.write(`data: ${JSON.stringify(event)}\n\n`);
+    };
+
+    await streamReply(messages, { ollamaUrl, model, apiKey }, (token) => writeEvent({ token }));
+    if (streaming) {
+      writeEvent({ done: true });
+      response.end();
+    } else {
+      sendJson(response, 502, { error: 'Ollama returned an empty reply. Please try again.' });
+    }
   } catch (error) {
-    if (response.headersSent) return;
+    if (response.headersSent) {
+      response.write(`data: ${JSON.stringify({ error: error.message || 'The chat stream was interrupted.' })}\n\n`);
+      response.end();
+      return;
+    }
     if (error.statusCode) {
       sendJson(response, error.statusCode, { error: error.message });
       return;

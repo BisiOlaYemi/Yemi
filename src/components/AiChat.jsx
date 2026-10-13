@@ -14,6 +14,47 @@ const suggestedQuestions = [
   'What technologies does Yemi use?',
 ];
 
+async function readChatStream(response, onToken) {
+  if (!response.body) {
+    throw new Error('Your browser could not read the assistant response stream.');
+  }
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '';
+  let completed = false;
+
+  const readEvent = (event) => {
+    const data = event
+      .split('\n')
+      .filter((line) => line.startsWith('data:'))
+      .map((line) => line.slice(5).trim())
+      .join('\n');
+    if (!data) return;
+
+    const payload = JSON.parse(data);
+    if (payload.error) throw new Error(payload.error);
+    if (typeof payload.token === 'string') onToken(payload.token);
+    if (payload.done) completed = true;
+  };
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      buffer += decoder.decode(value, { stream: !done });
+      const events = buffer.split('\n\n');
+      buffer = events.pop();
+      events.forEach(readEvent);
+      if (done) break;
+    }
+    if (buffer.trim()) readEvent(buffer);
+  } finally {
+    reader.releaseLock();
+  }
+
+  if (!completed) throw new Error('The assistant response stream ended unexpectedly. Please try again.');
+}
+
 export default function AiChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([openingMessage]);
@@ -37,13 +78,16 @@ export default function AiChat() {
     const content = messageText.trim();
     if (!content || isLoading) return;
 
-    const history = messages.filter((message) => !message.error);
-    if (isRetry) history.pop();
+    const history = messages.filter((message) => !message.error && !message.streaming);
+    if (isRetry) {
+      const lastUserIndex = history.map((message) => message.role).lastIndexOf('user');
+      if (lastUserIndex >= 0) history.splice(lastUserIndex, 1);
+    }
     const conversation = [...history, {
       role: 'user',
       content,
     }];
-    setMessages(conversation);
+    setMessages([...conversation, { role: 'assistant', content: '', streaming: true }]);
     setInput('');
     setIsLoading(true);
 
@@ -56,22 +100,50 @@ export default function AiChat() {
           content: text,
         })) }),
       });
-      const result = await response.json();
-
       if (!response.ok) {
+        const result = await response.json();
         throw new Error(result.error || 'The assistant could not answer right now.');
       }
 
-      setMessages((current) => [...current, { role: 'assistant', content: result.reply }]);
+      const contentType = response.headers.get('content-type') || '';
+      if (!contentType.includes('text/event-stream')) {
+        throw new Error('The chat service did not return a streaming response. Please try again.');
+      }
+
+      await readChatStream(response, (token) => {
+        setMessages((current) => {
+          const updated = [...current];
+          const lastMessage = updated[updated.length - 1];
+          if (lastMessage?.role === 'assistant' && lastMessage.streaming) {
+            updated[updated.length - 1] = { ...lastMessage, content: lastMessage.content + token };
+          }
+          return updated;
+        });
+      });
+      setMessages((current) => current.map((message, index) => (
+        index === current.length - 1 && message.role === 'assistant'
+          ? { ...message, streaming: false }
+          : message
+      )));
     } catch (error) {
-      setMessages((current) => [
-        ...current,
-        {
+      setMessages((current) => {
+        const updated = [...current];
+        const lastMessage = updated[updated.length - 1];
+        const errorMessage = {
           role: 'assistant',
           content: error.message || 'Could not connect to the assistant. Please try again.',
           error: true,
-        },
-      ]);
+        };
+        if (lastMessage?.role === 'assistant' && lastMessage.streaming) {
+          if (lastMessage.content) {
+            updated[updated.length - 1] = { ...lastMessage, streaming: false };
+            return [...updated, errorMessage];
+          }
+          updated[updated.length - 1] = errorMessage;
+          return updated;
+        }
+        return [...updated, errorMessage];
+      });
     } finally {
       setIsLoading(false);
     }
@@ -120,7 +192,7 @@ export default function AiChat() {
           <div className="profile-chat__messages" ref={messageListRef} aria-live="polite">
             {messages.map((message, index) => (
               <div
-                className={`profile-chat__message profile-chat__message--${message.role}${message.error ? ' profile-chat__message--error' : ''}`}
+                className={`profile-chat__message profile-chat__message--${message.role}${message.error ? ' profile-chat__message--error' : ''}${message.streaming ? ' profile-chat__message--streaming' : ''}`}
                 key={`${index}-${message.role}`}
               >
                 {message.content}
@@ -147,7 +219,7 @@ export default function AiChat() {
               </div>
             )}
 
-            {isLoading && (
+            {isLoading && messages[messages.length - 1]?.streaming && !messages[messages.length - 1]?.content && (
               <div className="profile-chat__typing" role="status">
                 <span /><span /><span /><span className="sr-only">Yemi's assistant is thinking</span>
               </div>

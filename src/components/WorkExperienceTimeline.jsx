@@ -8,7 +8,7 @@ const experiences = [
     description: 'Building AI-powered solutions as a Senior AI Engineer.'
   },
   {
-    title: 'AI Full Stack Engineer',
+    title: 'Full Stack Engineer',
     company: 'Nobroker Real Tech',
     period: 'Aug 2025 - Oct 2025',
     description: 'Developed full-stack solutions with a focus on AI-powered applications.'

@@ -1056,6 +1056,23 @@ body {
     color: #263244;
   }
 
+  .profile-chat__message--streaming:not(:empty)::after {
+    display: inline-block;
+    width: 0.4rem;
+    height: 1em;
+    margin-left: 0.18rem;
+    background: #b7852f;
+    content: "";
+    vertical-align: text-bottom;
+    animation: profile-chat-caret 0.9s steps(2, start) infinite;
+  }
+
+  @keyframes profile-chat-caret {
+    to {
+      visibility: hidden;
+    }
+  }
+
   .profile-chat__message--user {
     align-self: flex-end;
     border-bottom-right-radius: 0.3rem;
@@ -1215,6 +1232,7 @@ body {
 
   @media (prefers-reduced-motion: reduce) {
     .profile-chat__launcher,
+    .profile-chat__message--streaming::after,
     .profile-chat__typing span:not(.sr-only) {
       animation: none;
       transition: none;
